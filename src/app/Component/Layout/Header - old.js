@@ -1,0 +1,437 @@
+"use client"
+import React, { useEffect,useState,useContext } from 'react';
+import Link from 'next/link'
+import Image from 'next/image';
+import axios from 'axios';
+
+import { HeaderLogo,ColursOne,ColursOneOne,ColursTwo} from "../../assets/index";
+import { MenuThemeContext } from "../../globalstate/GlobalStateContext";
+import { IoSearchOutline } from "react-icons/io5";
+import { MdOutlineShoppingBag } from "react-icons/md";
+import { IoPersonCircleOutline } from "react-icons/io5";
+import { FaRegHeart } from "react-icons/fa";
+import { FaRegMessage } from "react-icons/fa6";
+import { MdCurrencyRupee } from "react-icons/md";
+import { FaAngleDown } from "react-icons/fa6";
+import { IoIosNotifications } from "react-icons/io";
+import { AiOutlineProduct } from "react-icons/ai";
+import { FaBars } from "react-icons/fa6";
+import { FaHeart } from "react-icons/fa";
+import { AiOutlineHome } from "react-icons/ai";
+import { IoClose } from "react-icons/io5";
+
+
+const currentDate = new Date();
+
+export default function Header() {
+  const { themeOptionsData, categoryMenus, addToCart, cartItems, wishlistItems } = useContext(MenuThemeContext);
+  const [isLoadingCart, setisLoadingCart] = useState(false);
+  const [quantity, setQuantity] = useState(1);
+
+  // header sticky
+
+  const [isHeaderFixed, setIsHeaderFixed] = useState(false);
+  const [isActive, setIsActive] = useState(false);
+  const [isActive1, setIsActive1] = useState(false);
+
+  // Calculate the total number of items in the cart
+  const cartCount = cartItems.reduce((count, item) => count + item.quantity, 0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setIsHeaderFixed(true);
+      } else {
+        setIsHeaderFixed(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  // body active class
+  useEffect(() => {
+    if (isActive) {
+      document.body.classList.add('active');
+    } else {
+      document.body.classList.remove('active');
+    }
+    return () => {
+      document.body.classList.remove('active');
+    };
+  }, [isActive]);
+
+  const handleLoginClick = () => {
+    setIsActive(!isActive);
+  };
+
+  // hedear search
+  const handleClick1 = () => {
+    setIsActive1(!isActive1);
+  };
+
+  // sale_discount
+
+  const [isHidden, setIsHidden] = useState(false);
+
+  const handleCrossClick = () => {
+    setIsHidden(true);
+  };
+
+  let socialLinks = {};
+  try {
+    socialLinks = JSON.parse(themeOptionsData.social_links);
+  } catch (error) {
+    socialLinks = {};
+  }
+
+  const handleAddToCart = (product) => {
+    if (product && quantity > 0) {
+      setisLoadingCart(true);
+
+      addToCart(product, quantity)
+        .then(() => {
+          setisLoadingCart(false);
+        })
+        .catch(err => {
+          console.error("Error adding to cart:", err);
+          setisLoadingCart(false);
+        });
+    }
+  };
+
+  return (
+    <>
+      <div className={`sale_discount ${isHidden ? 'hidden' : ''}`}>
+        <div className='container'>
+          <div className='row'>
+            <p>{themeOptionsData?.top_header1_text}</p>
+            <span className='span_cross' onClick={handleCrossClick}></span>
+          </div>
+        </div>
+      </div>
+
+      <div className='social_media'>
+        <div className='container'>
+          <div className='row justify-content-between align-items-center '>
+            <div className='col-12 col-md-8 d-flex align-items-center flex_col'>
+              <div className='social_links'>
+                {themeOptionsData && (
+                    <ul className='d-flex align-items-center'>
+                      {socialLinks.map((socialLink, index) => (
+                        <li key={index}>
+                          <Link href={socialLink?.social_link_url || "#"} target='_blank'>
+                            <Image 
+                              src={socialLink?.social_icon || BlankImage} 
+                              alt="image" 
+                              width={16} 
+                              height={16} 
+                            />
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                )}
+              </div>
+              {themeOptionsData?.top_header2_text && themeOptionsData?.top_header2_text_price &&(
+                <div className='message'>
+                  <FaRegMessage />
+                  <p>{themeOptionsData?.top_header2_text} </p>
+                  <MdCurrencyRupee />
+                  <p>{themeOptionsData?.top_header2_text_price}</p>
+                </div>
+              )}
+            </div>
+            <div className='col-12 col-md-4 d-flex align-items-center justify-content-end flex_spaces'>
+              <div className='dropdown_menu'>
+                <div className="dropdown">
+                  <button className="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Quick Help
+                    <span><FaAngleDown /></span>
+                  </button>
+                  <ul className="dropdown-menu">
+                    <li>
+                      <Link href="/about-us">About Us</Link>
+                    </li>
+                    <li>
+                      <Link href="/faq">FAQ</Link>
+                    </li>
+                    <li>
+                      <Link href="#">Contact</Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className='notification'>
+                <Link href='/notification' className='search_button'>
+                  <IoIosNotifications />
+                  <div className="circle pulse"></div>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <header className={` ${isHeaderFixed ? 'active' : ''}`} style={isHeaderFixed ? { top: 0 } : {}}>
+          <div className='container'>
+            <div className='row'>
+              <div className='header_main'>
+                <div className='humbergers'>
+                  <button onClick={handleLoginClick}>
+                    <FaBars />
+                  </button>
+                </div>
+                <div className='logo'>
+                  <Link href="/">
+                    <Image src={ HeaderLogo } alt="logo" />
+                  </Link>
+                </div>
+                <div className="mobile_class">
+                  <div className='mobile_background'>
+                    <div className='menu'>
+                      <ul>
+                        <li>
+                          <Link href="/" onClick={handleLoginClick}>Home</Link>
+                        </li>
+                          {/* Dynamic Categories Rendering */}
+                          {categoryMenus.map((category) => (
+                            <li key={category.slug}>
+                              <Link href="#">
+                                {category.name}
+                                <span><FaAngleDown /></span>
+                              </Link>
+                              {category.subcategories && category.subcategories.length > 0 && (
+                                <div className="mega_menu">
+                                  <div className='row'>
+                                    <div className='col-lg-3 col-12 category_menu'>
+                                      <h2>{category.name}</h2>
+                                      <ul>
+                                        {category.subcategories.map((subcategory) => (
+                                          <li key={subcategory.slug}>
+                                            <Link href={`/categories/${subcategory.slug}`}>
+                                              {subcategory.name}
+                                            </Link>
+                                          </li>
+                                        ))}
+                                      </ul>
+                                      <Link href="/products" className='all_product_btn'>All Product</Link>
+                                    </div>
+                                    {/* Latest Products */}
+                                    <div className="col-lg-6  category_menu_box">
+                                      <h2>Latest products of the {category.name}</h2>
+                                      <div className="header_product_box best_products">
+                                        <div className="row bottom">
+                                          {category.latest_products.map((product) => (
+                                            <div key={product.id} className="col-4 padding">
+                                              <div className="product_box">
+                                                <Link href={`/products/${product.slug}`} className="product_box_image">
+                                                  <div className="images">
+                                                    <Image
+                                                      src={product.product_image}
+                                                      alt={product.title}
+                                                      width={225}
+                                                      height={300}
+                                                      className="productOne"
+                                                    />
+                                                    <Image
+                                                      src={product.product_image2}
+                                                      alt={product.title}
+                                                      width={675}
+                                                      height={900}
+                                                      className="productTwo"
+                                                    />
+                                                  </div>
+                                                  {product.sale_price && 
+                                                        new Date(product.sale_start) <= currentDate && 
+                                                        currentDate <= new Date(product.sale_end) && (
+                                                      <div className="sale">
+                                                        <p>Sale</p>
+                                                        <p>{product.discount_percentage}% off</p>
+                                                      </div>
+                                                    )}
+                                                </Link>
+
+                                                {/* Product Info */}
+                                                <div className="product_box_text">
+                                                  <h2>{product.title}</h2>
+                                                  <p>
+                                                    {product.sale_price && 
+                                                      new Date(product.sale_start) <= currentDate && 
+                                                      currentDate <= new Date(product.sale_end) 
+                                                      ? "₹"+product.sale_price 
+                                                      : "₹"+product.regular_price}
+                                                    
+                                                    {product.sale_price && 
+                                                      new Date(product.sale_start) <= currentDate && 
+                                                      currentDate <= new Date(product.sale_end) && (
+                                                        <span>
+                                                          {"₹"+product.regular_price}
+                                                        </span>
+                                                    )}
+                                                  </p>
+                                                  {product.stock > 0 ? (
+                                                    <div className="cart_btn">
+                                                      <button onClick={() => handleAddToCart(product)} disabled={isLoadingCart || quantity <= 0}>
+                                                        {isLoadingCart ? "Adding..." : "Add To Cart"}
+                                                      </button>
+                                                    </div>
+                                                  ):(
+                                                    <div className="cart_btn">
+                                                      <button disabled>
+                                                        Out of stock
+                                                      </button>
+                                                    </div>
+                                                  )}
+                                                </div>
+                                                <div class="like">
+                                                  <button>
+                                                    <FaHeart />
+                                                  </button>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          ))}
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div className='col-lg-3  category_menu_ads'>
+                                      {themeOptionsData && themeOptionsData.mega_menu_banner && (
+                                        <Image src={themeOptionsData?.mega_menu_banner} alt="mega-menu-banner-img" width={350} height={650} />
+                                      )}
+                                    </div>
+                                  </div>
+                                </div>
+                              )}
+                            </li>
+                          ))}
+                      </ul>
+                    </div>
+                    <div className='all_button'>
+                      <div className='logos'>
+                        <Link href="/">
+                          <Image src={ HeaderLogo } alt="logo" priority />
+                        </Link>
+                      </div>
+                      <div>
+                        <button className='close_btn' onClick={handleLoginClick}>
+                          <IoClose />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className='search_cart_option'>
+                  <Link href='/wishlist' className='hearts_button'>
+                    <FaRegHeart />
+                    <span>
+                      {wishlistItems?.length || 0}
+                    </span>
+                  </Link>
+                  <Link href='/account' className='account_button'>
+                    <IoPersonCircleOutline />
+                  </Link>
+                  <button className='notification_button' onClick={handleClick1}>
+                    <IoSearchOutline />
+                  </button>
+                  <Link href='/cart' className='cart_button'>
+                    <MdOutlineShoppingBag />
+                    <span>
+                      {cartCount || 0}
+                    </span>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+      </header>
+      
+      <div className='Bottom_bar'>
+        <ul className='d-flex justify-content-between align-items-center'>
+            <li>
+                <Link href="/">
+                    <AiOutlineHome />
+                    <span>Home</span>
+                </Link>
+            </li>
+            <li>
+                <Link href="/wishlist">
+                    <FaRegHeart />
+                    <span>Wishlist</span>
+                </Link>
+            </li>
+            <li>
+                <Link href="/my-account">
+                    <IoPersonCircleOutline />
+                    <span>My Account</span>
+                </Link>
+            </li>
+            <li>
+                <button onClick={handleClick1}>
+                    <IoSearchOutline />
+                    <span>Search</span>
+                </button>
+            </li>
+            <li>
+                <Link href='/products'>
+                  <AiOutlineProduct />
+                  <span>All Products</span>
+                </Link>
+            </li>
+        </ul>
+      </div>
+
+      <div className={`search_panel ${isActive1 ? 'active' : ''}`}>
+        <div className='search_width'>
+          <div className='close_btn' onClick={handleClick1}>
+            <button>
+              <IoClose />
+            </button>
+          </div>
+          <div className='search_box'>
+            <input type='text' placeholder='Search for products..' />
+            <button type='submit' >
+              <IoSearchOutline />
+            </button>
+          </div>
+          <div className='quick_links_box'>
+            <h5>Quick Links :</h5>
+            <ul>
+              <li>
+                <Link href="#">
+                    <div className='quick_image'>
+                      <Image src={ColursOne} alt='quick-image' />
+                    </div>
+                    <span>Katan</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="#">
+                    <div className='quick_image'>
+                      <Image src={ColursOneOne} alt='quick-image' />
+                    </div>
+                    <span>Silk</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="#">
+                    <div className='quick_image'>
+                      <Image src={ColursTwo} alt='quick-image' />
+                    </div>
+                    <span>Tat</span>
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div className={`search_panel_background ${isActive1 ? 'active' : ''}`}>
+        <button onClick={handleClick1}></button>
+      </div>
+    </>
+  )
+}
