@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Link from 'next/link'
 import Image from 'next/image';
-import { BlankImage } from "../../assets/index";
+import { BlankImage,thread,sewing,gift,giftbox,worldwide,brand,anvikafront } from "../../assets/index";
 import { Layouts } from '../../Component'
 import BestProducts from '../../Component/Widgets/Homepage/BestProducts';
 import FindCategories from '../../Component/Widgets/Homepage/FindCategories';
@@ -12,6 +12,7 @@ import axios from 'axios';
 import { MenuThemeContext } from '../../globalstate/GlobalStateContext'; 
 import { FaRegHeart } from "react-icons/fa";
 import { MdFilterTiltShift } from "react-icons/md";
+import FairSlider from '@/app/Component/Widgets/product/FairSlider';
 
 
 export default function page() {
@@ -27,6 +28,10 @@ export default function page() {
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
+
+
+
+
 
   // cart state
   const [count, setCount] = useState(1);
@@ -228,6 +233,7 @@ const truncateWords = (text, limit = 3) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+
   return (
     <Layouts>
       <div className='categories_details'>
@@ -324,16 +330,139 @@ const truncateWords = (text, limit = 3) => {
                                                 Save 400
                                               </p>
                                             </div>
-                                              <h4>
-                                                {productDetails.stock > 0 
-                                                  ? `${productDetails.stock} IN STOCK` 
-                                                  : 'OUT OF STOCK'}
-                                              </h4>
+                                            <h4>
+                                              {productDetails.stock > 0 
+                                                ? `${productDetails.stock} IN STOCK` 
+                                                : 'OUT OF STOCK'}
+                                            </h4>
                                           </div>
                                         )}
 
-                                        <div className='details_paragraphy'>
-                                          <div dangerouslySetInnerHTML={{ __html: productDetails.short_description }} />
+                                        <div className='taxes_para'>
+                                          <p>MRP Inclusive of all taxes</p>
+                                        </div>
+
+                                        <div className='craft_option'>
+                                          <ul>
+                                            <li>
+                                              <div className='craft_laft'>
+                                                <Image src={thread} alt='icon' width={100} height={100} />
+                                              </div>
+                                              <div className='craft_right'>
+                                                <h3>
+                                                  Craft
+                                                </h3>
+                                                <p>
+                                                  Handloom
+                                                </p>
+                                              </div>
+                                            </li>
+                                            <li>
+                                              <div className='craft_laft'>
+                                                <Image src={sewing} alt='icon' width={100} height={100} />
+                                              </div>
+                                              <div className='craft_right'>
+                                                <h3>
+                                                  Material
+                                                </h3>
+                                                <p>
+                                                  Tissue
+                                                </p>
+                                              </div>
+                                            </li>
+                                            <li>
+                                              <div className='craft_laft'>
+                                                <Image src={sewing} alt='icon' width={100} height={100} />
+                                              </div>
+                                              <div className='craft_right'>
+                                                <h3>
+                                                  75 Man hours
+                                                </h3>
+                                                <p>
+                                                  Handwoven in Madhya Pradesh
+                                                </p>
+                                              </div>
+                                            </li>
+                                          </ul>
+                                        </div>
+                                        
+                                        <div className='craft_option more_option'>
+                                          <h2>More Offers</h2>
+                                          <ul>
+                                            <li>
+                                              <div className='craft_right'>
+                                                <h3>
+                                                  1st Order Free Gift
+                                                </h3>
+                                                <p>
+                                                  Canvas Bag – Carry the love! + photo of bag
+                                                </p>
+                                              </div>
+                                            </li>
+                                            <li>
+                                              <div className='craft_right'>
+                                                <h3>
+                                                  3rd Order Free Gift
+                                                </h3>
+                                                <p>
+                                                  Custom T-Shirt – Make it yours! + shirt mockup
+                                                </p>
+                                              </div>
+                                            </li>
+                                          </ul>
+                                        </div>
+
+                                        <div className='craft_option size_option'>
+                                          <div className='size_flex'>
+                                            <h2>Size</h2>
+                                            <button>
+                                              Size All
+                                            </button>
+                                          </div>
+                                          <ul>
+                                            <li>
+                                              <div className='craft_right'>
+                                                <h3>
+                                                  XS
+                                                </h3>
+                                              </div>
+                                            </li>
+                                            <li>
+                                              <div className='craft_right'>
+                                                <h3>
+                                                  S
+                                                </h3>
+                                              </div>
+                                            </li>
+                                            <li>
+                                              <div className='craft_right'>
+                                                <h3>
+                                                  M
+                                                </h3>
+                                              </div>
+                                            </li>
+                                            <li>
+                                              <div className='craft_right'>
+                                                <h3>
+                                                  L
+                                                </h3>
+                                              </div>
+                                            </li>
+                                            <li>
+                                              <div className='craft_right'>
+                                                <h3>
+                                                  XL
+                                                </h3>
+                                              </div>
+                                            </li>
+                                            <li>
+                                              <div className='craft_right'>
+                                                <h3>
+                                                  XXL
+                                                </h3>
+                                              </div>
+                                            </li>
+                                          </ul>
                                         </div>
                                     </div>
                                     <div className='slider_cart'>
@@ -368,6 +497,11 @@ const truncateWords = (text, limit = 3) => {
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div className='taxes_para text-center pt-1'>
+                                      <p>Free shipping in India. No minimum order value required</p>
+                                    </div>
+
                                     <div className={`slider_cart slider_active_cart ${isScrollingDown ? 'active' : ''}`}>
                                         <div className='active_cart_images'>
                                             <div className='active_image'>
@@ -458,6 +592,52 @@ const truncateWords = (text, limit = 3) => {
                                       </>
                                     )}
 
+                                    <div className='easy_deliverys'>
+                                        <ul>
+                                          <li>
+                                            <Image src={giftbox} alt='icon' width={60} height={60} />
+                                            <p>
+                                              Easy Exchange & Refunds
+                                            </p>
+                                          </li>
+                                          <li>
+                                            <Image src={gift} alt='icon' width={60} height={60} />
+                                            <button>
+                                              Packaging that’s ! a keepsake gift
+                                            </button>
+                                          </li>
+                                          <li>
+                                            <Image src={worldwide} alt='icon' width={60} height={60} />
+                                            <p>
+                                              Shipping Globally
+                                            </p>
+                                          </li>
+                                        </ul>
+                                    </div>
+
+                                    <div className='craft_option rewards'>
+                                      <ul>
+                                        <li>
+                                          <div className='craft_laft'>
+                                            <Image src={brand} alt='icon' width={100} height={100} />
+                                          </div>
+                                          <div className='craft_right'>
+                                            <h3>
+                                              Rewards
+                                            </h3>
+                                            <p>
+                                              Earn upto 9000 Heirloom Credits on this purchase
+                                            </p>
+                                          </div>
+                                        </li>
+                                      </ul>
+                                    </div>
+
+                                    <FairSlider />
+
+                                    <div className='details_paragraphy'>
+                                      <div dangerouslySetInnerHTML={{ __html: productDetails.short_description }} />
+                                    </div>
 
                                     <div className='slider_accordian'>
                                         <div className="accordion" id="accordionPanelsStayOpenExample">

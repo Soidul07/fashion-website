@@ -265,9 +265,6 @@
         bottom: 20px;
         padding-left: 30px !important;
     }
-    .banner {
-        height: 400px;
-    }
     .banner .item .banner_text h1 {
         font-size: 1.8rem !important;
         padding-bottom: 4px !important;
@@ -337,9 +334,6 @@
     }
     .ads_section {
         padding-top: 40px;
-    }
-    .ads_section .ads_image {
-        height: 30vh;
     }
     .ads_section .padding:not(:last-child)  {
         margin-bottom: 20px;
@@ -547,9 +541,6 @@
     .search_panel .search_width .quick_links_box ul li {
         width: 100%;
         padding-right: 0px;
-    }
-    .banner {
-        height: 34vh;
     }
     .banner .banner_big_slider .item .banner_bix_box .banner_text ul {
         justify-content: center;
@@ -851,9 +842,6 @@
     .ads_section .ads_image .left {
         padding-bottom: 20px;
         text-align: center;
-    }
-    .ads_section .ads_image {
-        height: 22vh;
     }
     .articles .article_slider .item .article_box .article_text {
         padding: 15px;

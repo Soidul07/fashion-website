@@ -74,6 +74,14 @@ import customer4 from '../assets/images/homepage/customer-4.webp';
 import BagIcon from '../assets/images/homepage/BagIcon.png';
 import TShirt from '../assets/images/homepage/TShirt.png';
 import Delivery from '../assets/images/homepage/Delivery.png';
+import thread from '../assets/images/homepage/thread.png';
+import sewing from '../assets/images/homepage/sewing.png';
+import focus from '../assets/images/homepage/focus.png';
+import worldwide from '../assets/images/homepage/worldwide.png';
+import gift from '../assets/images/homepage/gift.png';
+import giftbox from '../assets/images/homepage/gift-box.png';
+import anvikafront from '../assets/images/homepage/anvika_front.webp';
+import brand from '../assets/images/homepage/brand.png';
 
 
 export {
@@ -89,5 +97,6 @@ export {
     InstagramOne,InstagramTwo,InstagramThree,InstagramFour,InstagramFive,InstagramSix,
     paymentimage,WhatsappLogo,
     Percentagelogo,Upilogo,Gpaylogo,Phonepaylogo,Sbilogo,Icicilogo,Axislogo,Hdfclogo,BlankImage,
-    ShopingGif,CanceledGif,Footerbackground,customer1,customer2,customer3,customer4,BagIcon,TShirt,Delivery
+    ShopingGif,CanceledGif,Footerbackground,customer1,customer2,customer3,customer4,BagIcon,TShirt,Delivery,
+    thread,sewing,focus,worldwide,gift,giftbox,anvikafront,brand
 }

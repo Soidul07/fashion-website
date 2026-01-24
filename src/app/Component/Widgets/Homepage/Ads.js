@@ -1,8 +1,7 @@
 "use client"
 import React from 'react'
 import Link from 'next/link'
-import { patternsOne,patternsTwo } from "../../../assets/index";  
-import { HiArrowNarrowRight } from "react-icons/hi";
+import Image from 'next/image';
 
 export default function Ads({getLatestSeasonCategories}) {
     return  (
@@ -11,9 +10,9 @@ export default function Ads({getLatestSeasonCategories}) {
                 <div className='row'>
                     {getLatestSeasonCategories && getLatestSeasonCategories.length > 0 && (
                         getLatestSeasonCategories.map((seasonCategory, index) => (
-                            <div className='col-12 padding' key={index}>
-                                <Link href={'season-category/'+seasonCategory?.slug || '#'} className='ads_image' style={{ backgroundImage: `url(${seasonCategory?.banner_image})`, }}>
-                                    
+                            <div className='col-12' key={index}>
+                                <Link href={'season-category/'+seasonCategory?.slug || '#'} className='ads_image'>
+                                    <Image src={seasonCategory?.banner_image} alt='image' width={500} height={500} />
                                 </Link>
                             </div>
                         ))

@@ -157,21 +157,21 @@ export default function FindCategories() {
                                                                         </div>
                                                                     )}
                                                                 </Link>
-                                                                                                                                                                              {product.stock > 0 ? (
+                                                                                                                                                                                                                {product.stock > 0 ? (
                                                                     <div className="cart_btn">
                                                                         <button onClick={() => handleAddToCart(product)} disabled={isLoadingCart || quantity <= 0}>
                                                                             {isLoadingCart ? 
-                                                                            (
-                                                                                "Adding.."
-                                                                            ) : (
-                                                                                <>
-                                                                                    <MdOutlineShoppingBag />
-                                                                                </>
-                                                                            )    
-                                                                        }
+                                                                                (
+                                                                                    "Adding.."
+                                                                                ) : (
+                                                                                    <>
+                                                                                        <MdOutlineShoppingBag />
+                                                                                    </>
+                                                                                )    
+                                                                            }
                                                                         </button>
                                                                     </div>
-                                                                    ):(
+                                                                ):(
                                                                     <div className="cart_btn">
                                                                         <button disabled>
                                                                             Out of stock
@@ -179,6 +179,82 @@ export default function FindCategories() {
                                                                     </div>
                                                                 )}
                                                             </div>
+                                                            <div className='like'>
+                                                                <button onClick={() => handleWishlist(product)}>
+                                                                    <FaHeart />
+                                                                </button>
+                                                            </div>
+                                                            <div className='product_box_text'>
+                                                                <h2>{product.title}</h2>
+                                                                <p>
+                                                                    {product.sale_price && 
+                                                                    new Date(product.sale_start) <= currentDate && 
+                                                                    currentDate <= new Date(product.sale_end) 
+                                                                    ? "₹"+product.sale_price 
+                                                                    : "₹"+product.regular_price}
+                                                                    
+                                                                    {product.sale_price && 
+                                                                    new Date(product.sale_start) <= currentDate && 
+                                                                    currentDate <= new Date(product.sale_end) && (
+                                                                        <span>
+                                                                        {"₹"+product.regular_price}
+                                                                        </span>
+                                                                    )}
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                ))
+                                            ) : (
+                                                <div className='loding_box'>Loading products...</div>
+                                            )}
+                                        </Slider>
+                                    </div>
+                                </div>
+                                {categories.map(category => (
+                                    <div className="tab-pane fade" id={`pills-${category.slug}`} role="tabpanel" aria-labelledby={`pills-${category.slug}-tab`} key={category.id}>
+                                        <div className='product_slider slider_height'>
+                                            <Slider  {...sliderFindCategories}>
+                                                {category?.products && category?.products?.length > 0 ? (
+                                                    category.products.map(product => (
+                                                        <div className='item padding' key={product.id}>
+                                                            <div className='product_box'>
+                                                                <div className='pro_box_po'>
+                                                                    <Link href={`/products/${product.slug}`} className='product_box_image'>
+                                                                        <div className='images'>
+                                                                            <Image src={product?.product_image || BlankImage} width="225" height="300" alt='product-image' className='productOne' />
+                                                                            <Image src={product?.product_image2 || BlankImage}  width="675" height="900" alt='product-image' className='productTwo' />
+                                                                        </div>
+                                                                        {product.sale_price && 
+                                                                            new Date(product.sale_start) <= currentDate && 
+                                                                            currentDate <= new Date(product.sale_end) && (
+                                                                            <div className="discount">
+                                                                                <p>{product.discount_percentage}% off</p>
+                                                                            </div>
+                                                                        )}
+                                                                    </Link>
+                                                                    {product.stock > 0 ? (
+                                                                        <div className="cart_btn">
+                                                                            <button onClick={() => handleAddToCart(product)} disabled=      {isLoadingCart || quantity <= 0}>
+                                                                                {isLoadingCart ? 
+                                                                                    (
+                                                                                        "Adding.."
+                                                                                    ) : (
+                                                                                        <>
+                                                                                            <MdOutlineShoppingBag />
+                                                                                        </>
+                                                                                    )  
+                                                                                }
+                                                                            </button>
+                                                                        </div>
+                                                                    ):(
+                                                                        <div className="cart_btn">
+                                                                            <button disabled>
+                                                                                Out of stock
+                                                                            </button>
+                                                                        </div>
+                                                                    )}
+                                                                </div>
                                                                 <div className='like'>
                                                                     <button onClick={() => handleWishlist(product)}>
                                                                         <FaHeart />
@@ -186,6 +262,7 @@ export default function FindCategories() {
                                                                 </div>
                                                                 <div className='product_box_text'>
                                                                     <h2>{product.title}</h2>
+                                                                    
                                                                     <p>
                                                                         {product.sale_price && 
                                                                         new Date(product.sale_start) <= currentDate && 
@@ -207,79 +284,6 @@ export default function FindCategories() {
                                                                         <MdOutlineShoppingBag />
                                                                     </button>
                                                                 </div> */}
-                                                            
-                                                        </div>
-                                                    </div>
-                                                ))
-                                            ) : (
-                                                <div className='loding_box'>Loading products...</div>
-                                            )}
-                                        </Slider>
-                                    </div>
-                                </div>
-                                {categories.map(category => (
-                                    <div className="tab-pane fade" id={`pills-${category.slug}`} role="tabpanel" aria-labelledby={`pills-${category.slug}-tab`} key={category.id}>
-                                        <div className='product_slider slider_height'>
-                                            <Slider  {...sliderFindCategories}>
-                                                {category?.products && category?.products?.length > 0 ? (
-                                                    category.products.map(product => (
-                                                        <div className='item' key={product.id}>
-                                                            <div className='product_box'>
-                                                                <Link href={`/products/${product.slug}`} className='product_box_image'>
-                                                                    <div className='images'>
-                                                                        <Image src={product?.product_image || BlankImage} width="225" height="300" alt='product-image' className='productOne' />
-                                                                        <Image src={product?.product_image2 || BlankImage}  width="675" height="900" alt='product-image' className='productTwo' />
-                                                                    </div>
-                                                                    {product.sale_price && 
-                                                                        new Date(product.sale_start) <= currentDate && 
-                                                                        currentDate <= new Date(product.sale_end) && (
-                                                                        <div className="sale">
-                                                                        <p>Sale</p>
-                                                                        <p>{product.discount_percentage}% off</p>
-                                                                        </div>
-                                                                    )}
-                                                                </Link>
-                                                                <div className='like'>
-                                                                    <button onClick={() => handleWishlist(product)}>
-                                                                        <FaHeart />
-                                                                    </button>
-                                                                </div>
-                                                                <div className='product_box_text'>
-                                                                    <h2>{product.title}</h2>
-                                                                    {product.stock > 0 ? (
-                                                                        <div className="cart_btn">
-                                                                        <button onClick={() => handleAddToCart(product)} disabled={isLoadingCart || quantity <= 0}>
-                                                                            {isLoadingCart ? "Adding..." : "Add To Cart"}
-                                                                        </button>
-                                                                        </div>
-                                                                    ):(
-                                                                        <div className="cart_btn">
-                                                                        <button disabled>
-                                                                            Out of stock
-                                                                        </button>
-                                                                        </div>
-                                                                    )}
-                                                                    <p>
-                                                                        {product.sale_price && 
-                                                                        new Date(product.sale_start) <= currentDate && 
-                                                                        currentDate <= new Date(product.sale_end) 
-                                                                        ? "₹"+product.sale_price 
-                                                                        : "₹"+product.regular_price}
-                                                                        
-                                                                        {product.sale_price && 
-                                                                        new Date(product.sale_start) <= currentDate && 
-                                                                        currentDate <= new Date(product.sale_end) && (
-                                                                            <span>
-                                                                            {"₹"+product.regular_price}
-                                                                            </span>
-                                                                        )}
-                                                                    </p>
-                                                                </div>
-                                                                <div className='cart'>
-                                                                    <button onClick={() => handleAddToCart(product)} disabled={isLoadingCart || quantity <= 0}>
-                                                                        <MdOutlineShoppingBag />
-                                                                    </button>
-                                                                </div>
                                                             </div>
                                                         </div>
                                                     ))
