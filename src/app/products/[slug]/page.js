@@ -446,49 +446,22 @@ const truncateWords = (text, limit = 3) => {
                                               Size All
                                             </button>
                                           </div>
-                                          <ul>
-                                            <li>
-                                              <div className='craft_right'>
-                                                <h3>
-                                                  <button>XS</button>
-                                                </h3>
-                                              </div>
-                                            </li>
-                                            <li>
-                                              <div className='craft_right'>
-                                                <h3>
-                                                  <button>S</button>
-                                                </h3>
-                                              </div>
-                                            </li>
-                                            <li>
-                                              <div className='craft_right'>
-                                                <h3>
-                                                  <button>M</button>
-                                                </h3>
-                                              </div>
-                                            </li>
-                                            <li>
-                                              <div className='craft_right'>
-                                                <h3>
-                                                  <button>L</button>
-                                                </h3>
-                                              </div>
-                                            </li>
-                                            <li>
-                                              <div className='craft_right'>
-                                                <h3>
-                                                  <button>XL</button>
-                                                </h3>
-                                              </div>
-                                            </li>
-                                            <li>
-                                              <div className='craft_right'>
-                                                <h3>
-                                                  <button>XXL</button>
-                                                </h3>
-                                              </div>
-                                            </li>
+                                          <ul className="size_list">
+                                            {["XS", "S", "M", "L", "XL", "XXL"].map((size) => (
+                                              <li key={size}>
+                                                <div className="craft_right">
+                                                  <input
+                                                    type="radio"
+                                                    name="size"
+                                                    id={`size-${size}`}
+                                                    className="size_radio"
+                                                  />
+                                                  <label htmlFor={`size-${size}`} className="size_btn">
+                                                    {size}
+                                                  </label>
+                                                </div>
+                                              </li>
+                                            ))}
                                           </ul>
                                         </div>
                                     </div>
@@ -777,14 +750,14 @@ const truncateWords = (text, limit = 3) => {
 
             <div className="tabs">
               <button
-              className={`tab ${activeTab === "login" ? "active" : ""}`}
-              onClick={() => setActiveTab("login")}
+                className={`tab ${activeTab === "login" ? "active" : ""}`}
+                onClick={() => setActiveTab("login")}
               >
                 Size Chart
               </button>
               <button
-              className={`tab ${activeTab === "register" ? "active" : ""}`}
-              onClick={() => setActiveTab("register")}
+                className={`tab ${activeTab === "register" ? "active" : ""}`}
+                onClick={() => setActiveTab("register")}
               >
                 How To Measure
               </button>

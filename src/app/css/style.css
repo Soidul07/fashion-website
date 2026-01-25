@@ -2613,6 +2613,15 @@ footer .footer_top .link li a:hover {
   justify-content: space-between;
   align-items: center;
 }
+.categories_details .craft_option.size_option .size_flex button {
+  font-size: 0.9rem !important;
+  font-weight: 500;
+  color: var(--fonttext);
+  transition: all ease-in-out 0.3s;
+}
+.categories_details .craft_option.size_option .size_flex button:hover {
+  color: var(--darkRed);
+}
 .categories_details .craft_option.size_option ul {
   border: 1px solid var(--border);
   gap: 0;
@@ -2627,6 +2636,22 @@ footer .footer_top .link li a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+.categories_details .craft_option.size_option ul li input {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.categories_details .craft_option.size_option ul li .size_btn {
+  padding: 6px;
+}
+.categories_details .craft_option.size_option ul li .size_radio:checked + .size_btn {
+  background: var(--darkRed);
+  color: var(--white);
+  width: 100%;
 }
 .categories_details .craft_option.size_option ul li:not(:last-child) {
   border-right: 1px solid var(--border);
