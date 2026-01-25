@@ -143,7 +143,10 @@ export default function BestProducts() {
                                                     )}
                                                 </p>
                                                 <h3>
-                                                    You have save ₹400 this product
+                                                    {product.sale_price 
+                                                      ? `You have save ₹${parseFloat(product.regular_price) - parseFloat(product.sale_price)} this product`
+                                                      : null
+                                                    }
                                                 </h3>
                                             </div>
                                         </div>

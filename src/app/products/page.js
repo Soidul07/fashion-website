@@ -184,6 +184,12 @@ export default function AllProductsPage() {
                                 </span>
                             )}
                           </p>
+                          <p className='save_number'>
+                            {product.sale_price 
+                              ? `Save ₹${parseFloat(product.regular_price) - parseFloat(product.sale_price)}`
+                              : null
+                            }
+                          </p>
                         </div>
                       </div>
                     </div>

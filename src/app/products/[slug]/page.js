@@ -354,7 +354,10 @@ const truncateWords = (text, limit = 3) => {
                                                 </h3>
                                               )}
                                               <p className='save_number'>
-                                                Save 400
+                                                {productDetails.sale_price 
+                                                  ? `Save ₹${parseFloat(productDetails.regular_price) - parseFloat(productDetails.sale_price)}`
+                                                  : null
+                                                }
                                               </p>
                                             </div>
                                             <h4>
