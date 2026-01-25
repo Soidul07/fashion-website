@@ -49,9 +49,6 @@
     .categories_details .top .slider_details .slider_cart .active_cart_btn .count_div {
         max-width: 131px;
     }
-    .categories_details .top .slider_details .slider_cart .active_cart_btn .addcart_wishlist {
-        width: calc(100% - 131px);
-    }
     .categories_details .top .slider_details .slider_cart .active_cart_btn .addcart_wishlist .add_cart_btn button {
         padding: 10px 0px;
         font-size: 1.0rem;
@@ -494,6 +491,10 @@
     }
     .review_sales .top_heading .heading h2 {
         font-size: 1.3rem;
+    }
+    .footer_background .text_position h2 {
+        font-size: 4rem;
+        line-height: 58px;
     }
 }
 
@@ -1170,7 +1171,7 @@
         padding: 0px 0 0px 0;
         position: fixed;
         left: 0;
-        bottom: 62px;
+        bottom: 69px;
         width: 100%;
         z-index: 9;
     }
@@ -1200,9 +1201,6 @@
     }
     .categories_banner .heading {
         padding: 15px 15px;
-    }
-    .categories_banner .cat_background .image_box {
-        height: 28vh;
     }
 
     .wishlist_panel .cart_panel_bottom .start_shoping .start_shoping_btns ul li a,
@@ -1580,5 +1578,23 @@
     }
     .articles .article_slider .item .article_box .article_image::before {
         padding-top: 50%;
+    }
+    .categories_details .craft_option ul {
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    .best_products .bottom .product_box .product_box_text h3 {
+        font-size: 0.63rem;
+    }
+    .video_modal_overlay .modal_overlay {
+        padding: 0px 24px;
+    }
+    .product_padding .container {
+        padding: 0;
+    }
+    .footer_background .text_position h2 {
+        font-size: 2.8rem;
+        font-weight: 600;
+        line-height: 41px;
     }
 }

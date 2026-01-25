@@ -1,5 +1,6 @@
 "use client"
 import React, { useState, useContext, useEffect } from 'react';
+import Image from 'next/image';
 import { Layouts } from '../Component'
 import Acount from '../Component/Widgets/Header/Account';
 import { useFormik } from 'formik';
@@ -9,6 +10,7 @@ import { Country, State } from 'country-state-city';
 import { MenuThemeContext } from '../globalstate/GlobalStateContext';
 import qs from 'qs';
 import { useRouter } from 'next/navigation';
+import {bellgif} from '../assets/index'
 
 export default function page() {
     const router = useRouter();
@@ -574,9 +576,20 @@ export default function page() {
 
                                             <div className="cart_field_box mt-4">
                                                 <h3 className="text-lg font-semibold">Payment Method</h3>
+
+                                                <div className='order_msg_box'>
+                                                    <div className='or_icon'>
+                                                        <Image src={bellgif} alt="icon" width={60} height={60} />
+                                                    </div>
+                                                    <div className='or_text'>
+                                                        <p>
+                                                            Online payment Arrives on 3 days and Cash on Delivery Arrives in 7 days
+                                                        </p>
+                                                    </div>
+                                                </div>
                                                 
                                                 {/* PayU Payment Method */}
-                                                <div className="cart_input mb-2 d-flex items-center gap-3">
+                                                <div className="cart_input d-flex items-center gap-3">
                                                     <input 
                                                         type="radio" 
                                                         id="payu" 
@@ -588,9 +601,11 @@ export default function page() {
                                                     />
                                                     <label htmlFor="payu">Online payment</label>
                                                 </div>
+
+                                                <p className='arrive_msg'>Arrives on 3 days</p>
                                                 
                                                 {/* Cash on Delivery Payment Method */}
-                                                <div className="cart_input d-flex items-center gap-3 pb-3">
+                                                <div className="cart_input d-flex items-center gap-3">
                                                     <input 
                                                         type="radio" 
                                                         id="cod" 
@@ -603,6 +618,8 @@ export default function page() {
                                                     <label htmlFor="cod">Cash on Delivery (COD)</label>
                                                 </div>
 
+                                                <p className='arrive_msg'>Arrives in 7 days</p>
+
                                                 {/* Show validation error if no payment method is selected */}
                                                 {checkoutFormik.touched.payment_method && checkoutFormik.errors.payment_method ? (
                                                     <div className="error">{checkoutFormik.errors.payment_method}</div>
@@ -612,7 +629,7 @@ export default function page() {
                                             <div className='check_btn'>
                                                 {isLogin ? (
                                                     <button type="submit" disabled={checkoutBtnLoader}>
-                                                        {checkoutBtnLoader ? 'submitting...' : 'Place Order'}
+                                                        {checkoutBtnLoader ? 'Submitting...' : 'Place Order'}
                                                     </button>
                                                 ) : (
                                                     <button type="button" onClick={toggleAccordion}>

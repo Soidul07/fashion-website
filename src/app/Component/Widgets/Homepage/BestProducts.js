@@ -142,6 +142,9 @@ export default function BestProducts() {
                                                         </span>
                                                     )}
                                                 </p>
+                                                <h3>
+                                                    You have save ₹400 this product
+                                                </h3>
                                             </div>
                                         </div>
                                     </div>

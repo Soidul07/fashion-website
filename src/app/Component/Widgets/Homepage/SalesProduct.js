@@ -279,6 +279,9 @@ export default function SalesProduct({getSaleData}) {
                                                             </span>
                                                         )}
                                                     </p>
+                                                    <h3>
+                                                        You have save ₹400 this product
+                                                    </h3>
                                                 </div>
 
                                                 <div className="seles_cart d-flex justify-content-between align-items-center">

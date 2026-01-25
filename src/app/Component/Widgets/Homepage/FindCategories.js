@@ -201,6 +201,9 @@ export default function FindCategories() {
                                                                         </span>
                                                                     )}
                                                                 </p>
+                                                                <h3>
+                                                                    You have save ₹400 this product
+                                                                </h3>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -278,6 +281,9 @@ export default function FindCategories() {
                                                                             </span>
                                                                         )}
                                                                     </p>
+                                                                    <h3>
+                                                                        You have save ₹400 this product
+                                                                    </h3>
                                                                 </div>
                                                                 {/* <div className='cart'>
                                                                     <button onClick={() => handleAddToCart(product)} disabled={isLoadingCart || quantity <= 0}>

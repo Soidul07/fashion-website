@@ -66,7 +66,9 @@ export default function CategoryPage() {
           <div className='container'>
             <div className='row'>
               <div className='cat_background'>
-                <div className='image_box' style={{ backgroundImage: `url(${category?.cat_banner_image||BlankImage})` }}></div>
+                <div className='image_box'>
+                  <Image src={category?.cat_banner_image||BlankImage} width={600} height={600} alt="banner image" />
+                </div>
               </div>
               <div className='heading'>
                 <h2>{category.name}</h2>
@@ -155,6 +157,9 @@ export default function CategoryPage() {
                                   </span>
                               )}
                             </p>
+                            <h3>
+                                You have save ₹400 this product
+                            </h3>
                           </div>
                       </div>
                     </div>

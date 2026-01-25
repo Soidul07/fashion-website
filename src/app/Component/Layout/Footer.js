@@ -65,6 +65,9 @@ export default function Footer() {
                       <Link href="/wishlist">Wishlist</Link>
                     </li>
                     <li>
+                      <Link href="/checkout">Checkout</Link>
+                    </li>
+                    <li>
                       <Link href="/my-account">My Account</Link>
                     </li>
                   </ul>

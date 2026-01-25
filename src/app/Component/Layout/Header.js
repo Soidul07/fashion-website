@@ -325,9 +325,9 @@ export default function Header() {
                             )}
                           </li>
                         ))}
-                      <li>
+                      {/* <li>
                         <Link href="/" onClick={handleLoginClick}>Sales</Link>
-                      </li>
+                      </li> */}
                     </ul>
                   </div>
                   <div className='all_button'>

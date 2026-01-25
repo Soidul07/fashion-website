@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Link from 'next/link'
 import Image from 'next/image';
-import { BlankImage,thread,sewing,gift,giftbox,worldwide,brand,anvikafront } from "../../assets/index";
+import { BlankImage,thread,sewing,gift,giftbox,worldwide,brand,measureimage,videopromo } from "../../assets/index";
 import { Layouts } from '../../Component'
 import BestProducts from '../../Component/Widgets/Homepage/BestProducts';
 import FindCategories from '../../Component/Widgets/Homepage/FindCategories';
@@ -13,6 +13,8 @@ import { MenuThemeContext } from '../../globalstate/GlobalStateContext';
 import { FaRegHeart } from "react-icons/fa";
 import { MdFilterTiltShift } from "react-icons/md";
 import FairSlider from '@/app/Component/Widgets/product/FairSlider';
+import { FaStar } from "react-icons/fa";
+import { FaStarHalfAlt } from "react-icons/fa";
 
 
 export default function page() {
@@ -233,6 +235,21 @@ const truncateWords = (text, limit = 3) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const [open, setOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState("login");
+
+  const [selected, setSelected] = useState(null);
+  const sizes = [
+    { size: "XS", bust: "36.0", front: "16.5", shoulder: "24.0", waist: "26.0" },
+    { size: "S", bust: "36.0", front: "16.5", shoulder: "24.0", waist: "26.0" },
+    { size: "M", bust: "36.0", front: "16.5", shoulder: "24.0", waist: "26.0" },
+    { size: "L", bust: "42.0", front: "18.0", shoulder: "27.0", waist: "32.0" },
+    { size: "XL", bust: "44.0", front: "18.5", shoulder: "28.0", waist: "34.0" },
+    { size: "XXL", bust: "46.0", front: "19.0", shoulder: "29.0", waist: "36.0" },
+  ];
+
+  const [openVideoModal, setOpenVideoModal] = useState(false);
+
 
   return (
     <Layouts>
@@ -311,6 +328,16 @@ const truncateWords = (text, limit = 3) => {
                                 <div className='col-12 col-lg-7 slider_details'>
                                     <div className='slider_details_text'>
                                         <h2>{productDetails.title}</h2>
+                                        <div className='pro_star'>
+                                          <ul>
+                                            <li><FaStar /></li>
+                                            <li><FaStar /></li>
+                                            <li><FaStar /></li>
+                                            <li><FaStar /></li>
+                                            <li><FaStarHalfAlt /></li>
+                                            <li>(4.5)</li>
+                                          </ul>
+                                        </div>
                                         {productDetails.regular_price && (
                                           <div className='price_div'>
                                             <div className='save_box'>
@@ -415,7 +442,7 @@ const truncateWords = (text, limit = 3) => {
                                         <div className='craft_option size_option'>
                                           <div className='size_flex'>
                                             <h2>Size</h2>
-                                            <button>
+                                            <button onClick={() => setOpen(true)}>
                                               Size All
                                             </button>
                                           </div>
@@ -423,42 +450,42 @@ const truncateWords = (text, limit = 3) => {
                                             <li>
                                               <div className='craft_right'>
                                                 <h3>
-                                                  XS
+                                                  <button>XS</button>
                                                 </h3>
                                               </div>
                                             </li>
                                             <li>
                                               <div className='craft_right'>
                                                 <h3>
-                                                  S
+                                                  <button>S</button>
                                                 </h3>
                                               </div>
                                             </li>
                                             <li>
                                               <div className='craft_right'>
                                                 <h3>
-                                                  M
+                                                  <button>M</button>
                                                 </h3>
                                               </div>
                                             </li>
                                             <li>
                                               <div className='craft_right'>
                                                 <h3>
-                                                  L
+                                                  <button>L</button>
                                                 </h3>
                                               </div>
                                             </li>
                                             <li>
                                               <div className='craft_right'>
                                                 <h3>
-                                                  XL
+                                                  <button>XL</button>
                                                 </h3>
                                               </div>
                                             </li>
                                             <li>
                                               <div className='craft_right'>
                                                 <h3>
-                                                  XXL
+                                                  <button>XXL</button>
                                                 </h3>
                                               </div>
                                             </li>
@@ -602,7 +629,7 @@ const truncateWords = (text, limit = 3) => {
                                           </li>
                                           <li>
                                             <Image src={gift} alt='icon' width={60} height={60} />
-                                            <button>
+                                            <button onClick={() => setOpenVideoModal(true)}>
                                               Packaging that’s ! a keepsake gift
                                             </button>
                                           </li>
@@ -626,7 +653,7 @@ const truncateWords = (text, limit = 3) => {
                                               Rewards
                                             </h3>
                                             <p>
-                                              Earn upto 9000 Heirloom Credits on this purchase
+                                              Sustainability and eco-friendly
                                             </p>
                                           </div>
                                         </li>
@@ -734,12 +761,117 @@ const truncateWords = (text, limit = 3) => {
           </div>
       </div>
 
-      <div className='container'>
+      <div className='container product_padding'>
           <div className='row'>
               <BestProducts />
               <FindCategories />
           </div>
       </div>
+
+      <div className={`size_modal_overlay ${open ? "active" : ""}`} onClick={() => setOpen(false)}>
+        <div className="modal_overlay" onClick={(e) => e.stopPropagation()}>
+          <div className="modal_box">
+            <button className="close-btn" onClick={() => setOpen(false)}>
+              ✕
+            </button>
+
+            <div className="tabs">
+              <button
+              className={`tab ${activeTab === "login" ? "active" : ""}`}
+              onClick={() => setActiveTab("login")}
+              >
+                Size Chart
+              </button>
+              <button
+              className={`tab ${activeTab === "register" ? "active" : ""}`}
+              onClick={() => setActiveTab("register")}
+              >
+                How To Measure
+              </button>
+            </div>
+
+            {activeTab === "login" && (
+              <div className="tab-content">
+                <div className='table_div'>
+                  <div className='table_head'>
+                    <ul>
+                      <li></li>
+                      <li>Size</li>
+                      <li>Bust (in)</li>
+                      <li>Front Length (in)</li>
+                      <li>Across Shoulder (in)</li>
+                      <li>To Fit Waist (in)</li>
+                    </ul>
+                  </div>
+                  <div className='table_body'>
+                    <ul>
+                      {sizes.map((item, i) => (
+                        <li key={i} className={selected === i ? "active" : ""}>
+                          <span>
+                            <input
+                              type="radio"
+                              name="size"
+                              checked={selected === i}
+                              onChange={() => setSelected(i)}
+                            />
+                          </span>
+                          <span>{item.size}</span>
+                          <span>{item.bust}</span>
+                          <span>{item.front}</span>
+                          <span>{item.shoulder}</span>
+                          <span>{item.waist}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {activeTab === "register" && (
+              <div className="tab-content">
+                <div className='measure_box'>
+                  <h2>How to measure yourself</h2>
+                  <p>
+                    Find the size to fit your body measurements in the chart above. Here is a hand body measurements guide.
+                  </p>
+                  <div className='measure_box_image'>
+                    <Image src={measureimage} alt='measure image' />
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+
+        <div
+          className={`video_modal_overlay ${openVideoModal ? "active" : ""}`}
+          onClick={() => setOpenVideoModal(false)}
+        >
+          <button
+            className="close_btn"
+            onClick={() => setOpenVideoModal(false)}
+          >
+            ✕
+          </button>
+          <div className="modal_overlay" onClick={(e) => e.stopPropagation()}>
+            <div className="video_modal">
+              <video
+                  controls
+                  autoPlay
+                  width="100%"
+                  height="auto"
+                  preload="metadata"
+                  muted
+              >
+                  <source src="/video-promo.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+
     </Layouts>
   )
 }
