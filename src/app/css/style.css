@@ -2072,7 +2072,13 @@ footer .footer_top h3 {
 footer .footer_top p {
   font-size: 0.7rem;
   font-weight: 500;
-  color: var(--white);
+  color: var(--white) !important;
+}
+footer .footer_top p p {
+  color: var(--white) !important;
+}
+footer .footer_top p p p {
+  color: var(--white) !important;
 }
 footer .footer_top h4 {
   font-size: 1rem;
