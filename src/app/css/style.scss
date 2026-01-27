@@ -1985,7 +1985,13 @@ footer  {
         p  {
             font-size: 0.7rem;
             font-weight: 500;
-            color: var(--white);
+            color: var(--white) !important;
+            p {
+                color: var(--white) !important;
+                p {
+                    color: var(--white) !important;
+                }
+            }
         }
 
         h4  {
