@@ -9,7 +9,7 @@ import { MenuThemeContext } from '../globalstate/GlobalStateContext';
 import { HiMiniExclamationTriangle } from "react-icons/hi2";
 import { FaHeart } from "react-icons/fa";
 import { MdOutlineShoppingBag } from "react-icons/md";
-
+import { FaShare } from "react-icons/fa";
 
 export default function AllProductsPage() {
   const [allProducts, setAllProducts] = useState([]); // Store product data
@@ -166,6 +166,9 @@ export default function AllProductsPage() {
                           <button onClick={() => handleWishlist(product)}>
                             <FaHeart />
                           </button>
+                          <button>
+                            <FaShare />
+                          </button>
                         </div>
                         <div className="product_box_text">
                           <h2>{product.title}</h2>
@@ -183,12 +186,6 @@ export default function AllProductsPage() {
                                   {"₹"+product.regular_price}
                                 </span>
                             )}
-                          </p>
-                          <p className='save_number'>
-                            {product.sale_price 
-                              ? `Save ₹${parseFloat(product.regular_price) - parseFloat(product.sale_price)}`
-                              : null
-                            }
                           </p>
                         </div>
                       </div>

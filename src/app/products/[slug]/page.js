@@ -354,10 +354,7 @@ const truncateWords = (text, limit = 3) => {
                                                 </h3>
                                               )}
                                               <p className='save_number'>
-                                                {productDetails.sale_price 
-                                                  ? `Save ₹${parseFloat(productDetails.regular_price) - parseFloat(productDetails.sale_price)}`
-                                                  : null
-                                                }
+                                                Save 400
                                               </p>
                                             </div>
                                             <h4>
@@ -527,14 +524,19 @@ const truncateWords = (text, limit = 3) => {
                                             </div>
                                         </div>
                                         <div className='active_cart_btn'>
-                                            {productDetails.stock > 0 && (
+                                            {/* {productDetails.stock > 0 && (
                                               <div className='count_div'>
                                                   <button onClick={handleDecrement}>-</button>
                                                   <p>{count}</p>
                                                   <button onClick={handleIncrement}>+</button>
                                               </div>
-                                            )}
+                                            )} */}
                                             <div className='addcart_wishlist'>
+                                                <div className='add_cart_btn'>
+                                                  <Link href="/checkout">
+                                                    Checkout
+                                                  </Link>
+                                                </div>
                                                 {productDetails.stock > 0 ? (
                                                   <div className='add_cart_btn'>
                                                     <button onClick={handleAddToCart} disabled={isLoadingCart || quantity <= 0}>

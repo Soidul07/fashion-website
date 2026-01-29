@@ -153,7 +153,7 @@ export default function SignModal() {
                             </div>
                             <div className='col-12 col-md-5 modal_text'>
                                 <div className='text_box'>
-                                    <h3>Enjoy 10% off on your first order!</h3>
+                                    {/* <h3>Enjoy 10% off on your first order!</h3> */}
                                     <h5>Register with us</h5>
                                 </div>
                                 <div className='input_box'>

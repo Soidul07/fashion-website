@@ -8,6 +8,7 @@ import axios from 'axios';
 import { HiArrowNarrowRight } from "react-icons/hi";
 import { MdOutlineShoppingBag } from "react-icons/md";
 import { FaHeart } from "react-icons/fa";
+import { FaShare } from "react-icons/fa";
 
 export default function BestProducts() {
     const [getTrendingBestSellingProducts, setTrendingBestSellingProducts] = useState(null);
@@ -124,6 +125,9 @@ export default function BestProducts() {
                                                 <button onClick={() => handleWishlist(product)}>
                                                     <FaHeart />
                                                 </button>
+                                                <button>
+                                                    <FaShare />
+                                                </button>
                                             </div>
                                             <div className='product_box_text'>
                                                 <h2>{product.title}</h2>
@@ -143,10 +147,7 @@ export default function BestProducts() {
                                                     )}
                                                 </p>
                                                 <h3>
-                                                    {product.sale_price 
-                                                      ? `You have save ₹${parseFloat(product.regular_price) - parseFloat(product.sale_price)} this product`
-                                                      : null
-                                                    }
+                                                    You have save ₹400 this product
                                                 </h3>
                                             </div>
                                         </div>

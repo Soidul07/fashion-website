@@ -29,33 +29,33 @@ export default function page() {
                                     <span>
                                     <FaArrowUpRightDots />
                                     </span>
-                                    Welcome to FLY:
+                                    Welcome to 5Petal:
                                 </h3>
                             </div>
                             <div className="faq_item">
                                 <div className="faq_question" onClick={() => toggleFAQ(0)}>
-                                    <span>What is FLY ?</span>
+                                    <span>What is 5Petal ?</span>
                                     <span className={`arrow ${activeIndex === 0 ? 'rotate' : ''}`}>
                                         <FaAngleDown />
                                     </span>
                                 </div>
                                 {activeIndex === 0 && (
                                     <div className="faq_answer">
-                                        <p>FLY  is an online fashion store offering trendy clothing for men and women.</p>
+                                        <p>5Petal  is an online fashion store offering trendy clothing for men and women.</p>
                                     </div>
                                 )}
                             </div>
 
                             <div className="faq_item">
                                 <div className="faq_question" onClick={() => toggleFAQ(1)}>
-                                    <span>How do I contact FLY&apos;s customer service?</span>
+                                    <span>How do I contact 5Petal&apos;s customer service?</span>
                                     <span className={`arrow ${activeIndex === 1 ? 'rotate' : ''}`}>
                                         <FaAngleDown />
                                     </span>
                                 </div>
                                 {activeIndex === 1 && (
                                     <div className="faq_answer">
-                                        Email: <Link href='mailto:support@FLYlifestyle.com'>support@FLYlifestyle.com</Link>, Phone: <Link href='callto:6294374584'>6294374584</Link>
+                                        Email: <Link href='mailto:support@5Petallifestyle.com'>support@5Petal.com</Link>, Phone: <Link href='callto:6294374584'>6294374584</Link>
                                     </div>
                                 )}
                             </div>
@@ -71,7 +71,7 @@ export default function page() {
 
                             <div className="faq_item">
                                 <div className="faq_question" onClick={() => toggleFAQ(2)}>
-                                    <span>Do I need to create an account to shop on FLY ?</span>
+                                    <span>Do I need to create an account to shop on 5Petal ?</span>
                                     <span className={`arrow ${activeIndex === 2 ? 'rotate' : ''}`}>
                                         <FaAngleDown />
                                     </span>
@@ -85,7 +85,7 @@ export default function page() {
 
                             <div className="faq_item">
                                 <div className="faq_question" onClick={() => toggleFAQ(3)}>
-                                    <span>How do I reset my password on FLY?</span>
+                                    <span>How do I reset my password on 5Petal?</span>
                                     <span className={`arrow ${activeIndex === 3 ? 'rotate' : ''}`}>
                                         <FaAngleDown />
                                     </span>
@@ -108,7 +108,7 @@ export default function page() {
 
                             <div className="faq_item">
                                 <div className="faq_question" onClick={() => toggleFAQ(4)}>
-                                    <span>What payment methods does FLY accept?</span>
+                                    <span>What payment methods does 5Petal accept?</span>
                                     <span className={`arrow ${activeIndex === 2 ? 'rotate' : ''}`}>
                                         <FaAngleDown />
                                     </span>
@@ -122,7 +122,7 @@ export default function page() {
 
                             <div className="faq_item">
                                 <div className="faq_question" onClick={() => toggleFAQ(5)}>
-                                    <span>How do I track my order on FLY ?</span>
+                                    <span>How do I track my order on 5Petal ?</span>
                                     <span className={`arrow ${activeIndex === 3 ? 'rotate' : ''}`}>
                                         <FaAngleDown />
                                     </span>
@@ -136,7 +136,7 @@ export default function page() {
 
                             <div className="faq_item">
                                 <div className="faq_question" onClick={() => toggleFAQ(6)}>
-                                    <span>Can I cancel or change my order on FLY ?</span>
+                                    <span>Can I cancel or change my order on 5Petal ?</span>
                                     <span className={`arrow ${activeIndex === 3 ? 'rotate' : ''}`}>
                                         <FaAngleDown />
                                     </span>
@@ -159,7 +159,7 @@ export default function page() {
 
                             <div className="faq_item">
                                 <div className="faq_question" onClick={() => toggleFAQ(7)}>
-                                    <span>What are FLY's shipping policy?</span>
+                                    <span>What are 5Petal's shipping policy?</span>
                                     <span className={`arrow ${activeIndex === 2 ? 'rotate' : ''}`}>
                                         <FaAngleDown />
                                     </span>
@@ -173,7 +173,7 @@ export default function page() {
 
                             <div className="faq_item">
                                 <div className="faq_question" onClick={() => toggleFAQ(8)}>
-                                    <span>How long does delivery take on FLY ?</span>
+                                    <span>How long does delivery take on 5Petal ?</span>
                                     <span className={`arrow ${activeIndex === 3 ? 'rotate' : ''}`}>
                                         <FaAngleDown />
                                     </span>
@@ -196,7 +196,7 @@ export default function page() {
 
                             <div className="faq_item">
                                 <div className="faq_question" onClick={() => toggleFAQ(9)}>
-                                    <span>Can I return or exchange a product on FLY ?</span>
+                                    <span>Can I return or exchange a product on 5Petal ?</span>
                                     <span className={`arrow ${activeIndex === 2 ? 'rotate' : ''}`}>
                                         <FaAngleDown />
                                     </span>
@@ -210,7 +210,7 @@ export default function page() {
 
                             <div className="faq_item">
                                 <div className="faq_question" onClick={() => toggleFAQ(10)}>
-                                    <span>How do I initiate a return or exchange on FLY ?</span>
+                                    <span>How do I initiate a return or exchange on 5Petal ?</span>
                                     <span className={`arrow ${activeIndex === 3 ? 'rotate' : ''}`}>
                                         <FaAngleDown />
                                     </span>
@@ -233,7 +233,7 @@ export default function page() {
 
                             <div className="faq_item">
                                 <div className="faq_question" onClick={() => toggleFAQ(11)}>
-                                    <span>What if the product doesn't fit on FLY ?</span>
+                                    <span>What if the product doesn't fit on 5Petal ?</span>
                                     <span className={`arrow ${activeIndex === 2 ? 'rotate' : ''}`}>
                                         <FaAngleDown />
                                     </span>
@@ -247,7 +247,7 @@ export default function page() {
 
                             <div className="faq_item">
                                 <div className="faq_question" onClick={() => toggleFAQ(12)}>
-                                    <span>Are FLY 's products authentic?</span>
+                                    <span>Are 5Petal 's products authentic?</span>
                                     <span className={`arrow ${activeIndex === 3 ? 'rotate' : ''}`}>
                                         <FaAngleDown />
                                     </span>
@@ -270,7 +270,7 @@ export default function page() {
 
                             <div className="faq_item">
                                 <div className="faq_question" onClick={() => toggleFAQ(11)}>
-                                    <span>Do you offer discounts or promotions on FLY?</span>
+                                    <span>Do you offer discounts or promotions on 5Petal?</span>
                                     <span className={`arrow ${activeIndex === 2 ? 'rotate' : ''}`}>
                                         <FaAngleDown />
                                     </span>

@@ -17,7 +17,7 @@ export default function page() {
             </div>
             <div className='policy_div'>
                 <div className='policy_heading'>
-                    <h3>Welcome to FLY, By using our website, social media, or purchasing our products, you agree to these terms:
+                    <h3>Welcome to 5Petal, By using our website, social media, or purchasing our products, you agree to these terms:
                     </h3>
                 </div>
                 <div className='policy_box strong_flex'>
@@ -39,7 +39,7 @@ export default function page() {
                                 <span><IoMdCheckmarkCircleOutline /></span>
                                 <strong>Intellectual Property:</strong>
                             </div>
-                            <p>All content, images, and trademarks are owned by FLY Lifestyle.</p>
+                            <p>All content, images, and trademarks are owned by 5Petal Lifestyle.</p>
                         </li>
                         <li>
                             <div className='d-flex'>

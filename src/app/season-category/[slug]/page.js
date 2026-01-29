@@ -10,7 +10,7 @@ import { MenuThemeContext } from '../../globalstate/GlobalStateContext';
 import { HiMiniExclamationTriangle } from "react-icons/hi2";
 import { FaHeart } from "react-icons/fa";
 import { MdOutlineShoppingBag } from "react-icons/md";
-
+import { FaShare } from "react-icons/fa";
 
 export default function CategoryPage() {
   const { slug } = useParams();
@@ -141,6 +141,9 @@ export default function CategoryPage() {
                         <div className='like'>
                           <button onClick={() => handleWishlist(product)}>
                             <FaHeart />
+                          </button>
+                          <button>
+                            <FaShare />
                           </button>
                         </div>
                         <div className='product_box_text'>

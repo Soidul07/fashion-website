@@ -583,10 +583,7 @@ export default function page() {
                                                     </div>
                                                     <div className='or_text'>
                                                         <p>
-                                                            Unlock faster delivery! <br />
-                                                            Pay online → Arrives in 3 days  <br />
-                                                            Choose COD → Arrives in 7 days  <br />
-                                                            Faster joy with prepaid
+                                                            Online payment Arrives on 3 days and Cash on Delivery Arrives in 7 days
                                                         </p>
                                                     </div>
                                                 </div>

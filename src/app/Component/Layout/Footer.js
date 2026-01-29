@@ -45,7 +45,7 @@ export default function Footer() {
                       <Link href="/contact-us">Contact Us</Link>
                     </li>
                     <li>
-                      <Link href="/notification">Notification</Link>
+                      {/* <Link href="/notification">Notification</Link> */}
                     </li>
                     <li>
                       <Link href="/faq">FAQ</Link>
@@ -100,7 +100,7 @@ export default function Footer() {
             <div className='col-lg-3 col-md-6 col-sm-12'>
               <div className='row'>
                 <div className='col-12'>
-                  <h3>About Fly</h3>
+                  <h3>About 5Petal</h3>
                   <p dangerouslySetInnerHTML={{ __html: themeOptionsData?.footer_description }}></p>
                   <h4>social Media</h4>
                     {themeOptionsData && socialLinks && (

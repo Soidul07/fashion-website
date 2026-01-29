@@ -20,11 +20,11 @@ export default function page() {
                         <span>
                         <FaArrowUpRightDots />
                         </span>
-                        Welcome to FLY:</h3>
+                        Welcome to 5Petal:</h3>
                     <ul>
                         <li>
                             <span><IoMdCheckmarkCircleOutline /></span>
-                            At FLY, we believe that the greatest love story begins with you. Our brand name, FLY, stands for "First Love Yourself" - a philosophy that inspires us to create clothing that makes you feel confident, beautiful, and empowered.
+                            At 5Petal, we believe that the greatest love story begins with you. Our brand name, 5Petal, stands for "First Love Yourself" - a philosophy that inspires us to create clothing that makes you feel confident, beautiful, and empowered.
                         </li>
                     </ul>
                 </div>
@@ -37,7 +37,7 @@ export default function page() {
                     <ul>
                         <li>
                             <span><IoMdCheckmarkCircleOutline /></span>
-                            FLY was born from the idea that self-love is the foundation of true happiness. We wanted to create a fashion brand that not only makes you look good but also feels good. Our mission is to help you embrace your individuality, celebrate your uniqueness, and love yourself first.
+                            5Petal was born from the idea that self-love is the foundation of true happiness. We wanted to create a fashion brand that not only makes you look good but also feels good. Our mission is to help you embrace your individuality, celebrate your uniqueness, and love yourself first.
                         </li>
                     </ul>
                 </div>
@@ -50,7 +50,7 @@ export default function page() {
                     <ul>
                         <li>
                             <span><IoMdCheckmarkCircleOutline /></span>
-                            We envision a world where fashion is a tool for self-expression, not just a trend to follow. Where everyone can wear their confidence on their sleeve and feel comfortable in their own skin. At FLY, we're committed to creating clothing that sparks joy, fosters self-love, and inspires you to be your best self.
+                            We envision a world where fashion is a tool for self-expression, not just a trend to follow. Where everyone can wear their confidence on their sleeve and feel comfortable in their own skin. At 5Petal, we're committed to creating clothing that sparks joy, fosters self-love, and inspires you to be your best self.
                         </li>
                     </ul>
                 </div>
@@ -102,7 +102,7 @@ export default function page() {
                                 <span><IoMdCheckmarkCircleOutline /></span>
                                 <strong>Inclusivity:</strong>
                             </div>
-                            <p>We welcome everyone to join the FLY community, regardless of shape, size, color, or identity.</p>
+                            <p>We welcome everyone to join the 5Petal community, regardless of shape, size, color, or identity.</p>
                         </li>
                     </ul>
                 </div>
@@ -115,7 +115,7 @@ export default function page() {
                     <ul>
                         <li>
                             <span><IoMdCheckmarkCircleOutline /></span>
-                            At FLY, we're more than just a clothing brand - we're a community of like-minded individuals who believe in the power of self-love. Join us on this journey, and let's spread love, positivity, and fashion together!
+                            At 5Petal, we're more than just a clothing brand - we're a community of like-minded individuals who believe in the power of self-love. Join us on this journey, and let's spread love, positivity, and fashion together!
                         </li>
                     </ul>
                 </div>

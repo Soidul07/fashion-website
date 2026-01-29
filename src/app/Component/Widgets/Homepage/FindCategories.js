@@ -10,6 +10,7 @@ import { LuFilter } from "react-icons/lu";
 import { HiArrowNarrowRight } from "react-icons/hi";
 import { MdOutlineShoppingBag } from "react-icons/md";
 import { FaHeart } from "react-icons/fa";
+import { FaShare } from "react-icons/fa";
 
 export default function FindCategories() {
     const { addToCart, addToWishlist } = useContext(MenuThemeContext);
@@ -183,6 +184,9 @@ export default function FindCategories() {
                                                                 <button onClick={() => handleWishlist(product)}>
                                                                     <FaHeart />
                                                                 </button>
+                                                                <button>
+                                                                    <FaShare  />
+                                                                </button>
                                                             </div>
                                                             <div className='product_box_text'>
                                                                 <h2>{product.title}</h2>
@@ -261,6 +265,9 @@ export default function FindCategories() {
                                                                 <div className='like'>
                                                                     <button onClick={() => handleWishlist(product)}>
                                                                         <FaHeart />
+                                                                    </button>
+                                                                    <button>
+                                                                        <FaShare />
                                                                     </button>
                                                                 </div>
                                                                 <div className='product_box_text'>

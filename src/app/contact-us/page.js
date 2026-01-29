@@ -17,10 +17,10 @@ export default function page() {
                             <div className='col-lg-4 col-12'>
                                 <div className='cart_field'>
                                     <h3>Our Address</h3>
-                                    <p>House no-12, 12/A NewTown</p>
-                                    <p>Kolkata, West Bengal</p>
-                                    <p>+91 98 4211 3522</p>
-                                    <p>support@gnail.com</p>
+                                    <p>133, Subhas Sarani Road,</p>
+                                    <p>Kolkata 51, West Bengal</p>
+                                    <p>+91-6294374584</p>
+                                    <p>support@gmail.com</p>
                                 </div>
                             </div>
                             <div className='col-lg-4 col-12'>
@@ -33,7 +33,7 @@ export default function page() {
                                 </div>
                             </div>
                         </div>
-                        <div className='row'>
+                        {/* <div className='row'>
                             <div className='col-lg-7 col-md-12 col-12'>
                                 <div className='cart_field profile_edit'>
                                     <h3>Send a Message</h3>
@@ -87,7 +87,7 @@ export default function page() {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                     </form>
                 </div>
             </div>

@@ -3,13 +3,12 @@ import React, { useState, useEffect, useContext } from 'react';
 import Link from 'next/link'
 import Image from 'next/image';
 import { BlankImage } from "../../../assets/index";
-
 import Slider from "react-slick";
-
 import { FaArrowRightLong } from "react-icons/fa6";
 import { FaHeart } from "react-icons/fa";
 import { MenuThemeContext } from "../../../globalstate/GlobalStateContext";
 import { MdOutlineShoppingBag } from "react-icons/md";
+import { FaShare } from "react-icons/fa";
 
 export default function SalesProduct({getSaleData}) {
     const { addToCart, addToWishlist } = useContext(MenuThemeContext);
@@ -260,6 +259,9 @@ export default function SalesProduct({getSaleData}) {
                                                     <button onClick={() => handleWishlist(product)}>
                                                         <FaHeart />
                                                     </button>
+                                                    <button>
+                                                        <FaShare />
+                                                    </button>
                                                 </div>
 
                                                 <div className='product_box_text'>
@@ -280,10 +282,7 @@ export default function SalesProduct({getSaleData}) {
                                                         )}
                                                     </p>
                                                     <h3>
-                                                        {product.sale_price 
-                                                          ? `You have save ₹${parseFloat(product.regular_price) - parseFloat(product.sale_price)} this product`
-                                                          : null
-                                                        }
+                                                        You have save ₹400 this product
                                                     </h3>
                                                 </div>
 

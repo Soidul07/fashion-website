@@ -319,6 +319,7 @@ input[type="number"] {
             justify-content: center;
             align-items: center;
             transition: all ease-in-out .3s;
+            margin-bottom: 4px;
 
             svg  {
                 width: 14px;
@@ -1985,13 +1986,7 @@ footer  {
         p  {
             font-size: 0.7rem;
             font-weight: 500;
-            color: var(--white) !important;
-            p {
-                color: var(--white) !important;
-                p {
-                    color: var(--white) !important;
-                }
-            }
+            color: var(--white);
         }
 
         h4  {
@@ -3048,7 +3043,7 @@ footer  {
                             padding: 0 8px;
                             display: flex;
                             flex-grow: 1;
-                            button  {
+                            button, a  {
                                 width: 100%;
                                 padding: 14px 0px;
                                 font-size: 1.0rem;
@@ -3129,6 +3124,12 @@ footer  {
                                 button {
                                     padding: 14px 26px;
                                     white-space: nowrap;
+                                }
+                                a {
+                                    padding: 9.8px 26px;
+                                    text-align: center;
+                                    display: flex;
+                                    justify-content: center;
                                 }
                             }
                         }
@@ -4141,7 +4142,7 @@ footer  {
                                 background: var(--bannertext);
                                 transition: all ease-in-out .3s;
                             }
-                            button  {
+                            button, a  {
                                 background: var(--bannertext);
                                 padding: 9px 10px;
                                 border-radius: 3px;

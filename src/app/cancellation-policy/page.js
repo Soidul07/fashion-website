@@ -17,7 +17,7 @@ export default function page() {
             </div>
             <div className='policy_div'>
                 <div className='policy_heading'>
-                    <h3>At FLY Lifestyle, we understand that sometimes you may need to cancel your order. Here's our cancellation policy:</h3>
+                    <h3>At 5Petal Lifestyle, we understand that sometimes you may need to cancel your order. Here's our cancellation policy:</h3>
                 </div>
                 <div className='policy_box'>
                     <h3>

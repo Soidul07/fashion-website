@@ -18,7 +18,7 @@ export default function page() {
             </div>
             <div className='policy_div'>
                 <div className='policy_heading'>
-                    <h3>At FLY Lifestyle, we're excited to offer shipping across India and internationally. Here's what you need to know:</h3>
+                    <h3>At 5Petal Lifestyle, we're excited to offer shipping across India and internationally. Here's what you need to know:</h3>
                 </div>
                 <div className='policy_box'>
                     <h3>
@@ -144,7 +144,7 @@ export default function page() {
                     </ul>
                 </div>
                 <div className='policy_heading pt-4'>
-                    <h3>**  By shopping with us, you agree to our Shipping Policy. If you have any questions or concerns, please don't hesitate to contact us! Mail id- <Link href='mailto:abc@gmail.com'>abc@gmail.com</Link>
+                    <h3>**  By shopping with us, you agree to our Shipping Policy. If you have any questions or concerns, please don't hesitate to contact us! Mail id- <Link href='mailto:support5petal@gmail.com'>support@gmail.com</Link>
                     </h3>
                 </div>
             </div>

@@ -17,7 +17,7 @@ export default function page() {
             </div>
             <div className='policy_div'>
                 <div className='policy_heading'>
-                    <h3>At FLY , we value your privacy and commit to protecting your personal information.</h3>
+                    <h3>At 5Petal , we value your privacy and commit to protecting your personal information.</h3>
                 </div>
                 <div className='policy_box strong_flex'>
                     <h3>

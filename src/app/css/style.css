@@ -967,6 +967,7 @@ header.inner_header .header_main .humbergers button svg {
   justify-content: center;
   align-items: center;
   transition: all ease-in-out 0.3s;
+  margin-bottom: 4px;
 }
 .best_products .bottom .product_box .like button svg {
   width: 14px;
@@ -1324,6 +1325,7 @@ header.inner_header .header_main .humbergers button svg {
   justify-content: center;
   align-items: center;
   transition: all ease-in-out 0.3s;
+  margin-bottom: 4px;
 }
 .sales .bottom .product_box .like button svg {
   width: 14px;
@@ -2072,13 +2074,7 @@ footer .footer_top h3 {
 footer .footer_top p {
   font-size: 0.7rem;
   font-weight: 500;
-  color: var(--white) !important;
-}
-footer .footer_top p p {
-  color: var(--white) !important;
-}
-footer .footer_top p p p {
-  color: var(--white) !important;
+  color: var(--white);
 }
 footer .footer_top h4 {
   font-size: 1rem;
@@ -3054,7 +3050,7 @@ footer .footer_top .link li a:hover {
   display: flex;
   flex-grow: 1;
 }
-.categories_details .top .slider_details .slider_cart .active_cart_btn .addcart_wishlist .add_cart_btn button {
+.categories_details .top .slider_details .slider_cart .active_cart_btn .addcart_wishlist .add_cart_btn button, .categories_details .top .slider_details .slider_cart .active_cart_btn .addcart_wishlist .add_cart_btn a {
   width: 100%;
   padding: 14px 0px;
   font-size: 1rem;
@@ -3064,7 +3060,7 @@ footer .footer_top .link li a:hover {
   border-radius: 4px;
   transition: all ease-in-out 0.3s;
 }
-.categories_details .top .slider_details .slider_cart .active_cart_btn .addcart_wishlist .add_cart_btn button:hover {
+.categories_details .top .slider_details .slider_cart .active_cart_btn .addcart_wishlist .add_cart_btn button:hover, .categories_details .top .slider_details .slider_cart .active_cart_btn .addcart_wishlist .add_cart_btn a:hover {
   background: var(--darkRed);
 }
 .categories_details .top .slider_details .slider_cart .active_cart_btn .addcart_wishlist .wishlist button {
@@ -3132,6 +3128,12 @@ footer .footer_top .link li a:hover {
 .categories_details .top .slider_details .slider_cart.slider_active_cart .active_cart_btn .addcart_wishlist .add_cart_btn button {
   padding: 14px 26px;
   white-space: nowrap;
+}
+.categories_details .top .slider_details .slider_cart.slider_active_cart .active_cart_btn .addcart_wishlist .add_cart_btn a {
+  padding: 9.8px 26px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 .categories_details .top .slider_details .slider_cart.slider_active_cart.active {
   opacity: 1;
@@ -4094,7 +4096,7 @@ footer .footer_top .link li a:hover {
   background: var(--bannertext);
   transition: all ease-in-out 0.3s;
 }
-.wishlist_panel .cart_panel_bottom .view_shoping .view_list ul li .right button {
+.wishlist_panel .cart_panel_bottom .view_shoping .view_list ul li .right button, .wishlist_panel .cart_panel_bottom .view_shoping .view_list ul li .right a {
   background: var(--bannertext);
   padding: 9px 10px;
   border-radius: 3px;
@@ -4103,13 +4105,13 @@ footer .footer_top .link li a:hover {
   justify-content: center;
   align-items: center;
 }
-.wishlist_panel .cart_panel_bottom .view_shoping .view_list ul li .right button svg {
+.wishlist_panel .cart_panel_bottom .view_shoping .view_list ul li .right button svg, .wishlist_panel .cart_panel_bottom .view_shoping .view_list ul li .right a svg {
   width: 13px;
   height: 13px;
   fill: var(--white);
   transition: all ease-in-out 0.3s;
 }
-.wishlist_panel .cart_panel_bottom .view_shoping .view_list ul li .right button:hover {
+.wishlist_panel .cart_panel_bottom .view_shoping .view_list ul li .right button:hover, .wishlist_panel .cart_panel_bottom .view_shoping .view_list ul li .right a:hover {
   background: var(--darkRed);
 }
 .wishlist_panel .cart_panel_bottom .view_shoping .total_div {

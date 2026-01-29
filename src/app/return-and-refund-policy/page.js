@@ -17,7 +17,7 @@ export default function page() {
             </div>
             <div className='policy_div'>
                 <div className='policy_heading'>
-                    <h3>At FLY , we want you to love your purchases! If for any reason you're not completely satisfied, we offer a flexible return and refund policy.</h3>
+                    <h3>At 5Petal , we want you to love your purchases! If for any reason you're not completely satisfied, we offer a flexible return and refund policy.</h3>
                 </div>
                 <div className='policy_box'>
                     <h3>
