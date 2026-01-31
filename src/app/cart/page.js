@@ -80,15 +80,11 @@ export default function CartPage() {
                                       <div className='quantity_flex'>
                                         <p>
                                           <span>
-                                              {item.product.sale_price && 
-                                                new Date(item.product.sale_start) <= currentDate && 
-                                                currentDate <= new Date(item.product.sale_end) 
+                                              {item.product.sale_price
                                                 ? "₹"+item.product.sale_price 
                                                 : "₹"+item.product.regular_price}
                                             </span>
-                                            {item.product.sale_price && 
-                                              new Date(item.product.sale_start) <= currentDate && 
-                                              currentDate <= new Date(item.product.sale_end) && (
+                                            {item.product.sale_price && (
                                                 <span className='line_text'>
                                                   {"₹"+item.product.regular_price}
                                                 </span>
@@ -102,14 +98,13 @@ export default function CartPage() {
                                         <h6>
                                           Total = 
                                           ₹{(
-                                            (item.product.sale_price && 
-                                              new Date(item.product.sale_start) <= currentDate && 
-                                              currentDate <= new Date(item.product.sale_end) 
+                                            (item.product.sale_price
                                               ? item.product.sale_price 
                                               : item.product.regular_price) 
                                             * item.quantity
                                           ).toFixed(2)}
                                         </h6>
+                                        
                                       </div>
                                     </div>
                                   </div>
@@ -146,6 +141,19 @@ export default function CartPage() {
                               <td>Sub Total</td>
                               <td>₹{subtotal.toFixed(2)}</td>
                             </tr>
+                            {cartItems.some(item => item.product.sale_price && parseFloat(item.product.regular_price) > parseFloat(item.product.sale_price)) && (
+                              <tr>
+                                <td>You have save</td>
+                                <td>
+                                  ₹{cartItems.reduce((total, item) => {
+                                    if (item.product.sale_price && parseFloat(item.product.regular_price) > parseFloat(item.product.sale_price)) {
+                                      return total + ((parseFloat(item.product.regular_price) - parseFloat(item.product.sale_price)) * item.quantity);
+                                    }
+                                    return total;
+                                  }, 0).toFixed(2)}
+                                </td>
+                              </tr>
+                            )}
                             <tr>
                               <td>Total</td>
                               <td>₹{total.toFixed(2)}</td>

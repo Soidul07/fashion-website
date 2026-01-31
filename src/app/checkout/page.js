@@ -540,16 +540,22 @@ export default function page() {
                                                             {' '+item.quantity}
                                                         </span>
                                                         <span>
-                                                            {(
-                                                                (item.product.sale_price && 
-                                                                new Date(item.product.sale_start) <= currentDate && 
-                                                                currentDate <= new Date(item.product.sale_end) 
-                                                                ? item.product.sale_price 
-                                                                : item.product.regular_price) 
+                                                            ₹{(
+                                                                (item.product.sale_price
+                                                                ? item.product.regular_price 
+                                                                : item.product.sale_price) 
                                                                 * item.quantity
                                                             ).toFixed(2)}
                                                         </span>
                                                     </li>
+                                                ))}
+                                                {cartItems.map((item, index) => (
+                                                    item.product.sale_price && parseFloat(item.product.regular_price) > parseFloat(item.product.sale_price) && (
+                                                        <li key={`save-${index}`}>
+                                                            
+                                                            <span>You have save </span><span> ₹{((parseFloat(item.product.regular_price) - parseFloat(item.product.sale_price)) * item.quantity).toFixed(2)}</span>
+                                                        </li>
+                                                    )
                                                 ))}
                                                 <li>
                                                     <span>Sub Total</span>

@@ -259,7 +259,11 @@ export default function SalesProduct({getSaleData}) {
                                                     <button onClick={() => handleWishlist(product)}>
                                                         <FaHeart />
                                                     </button>
-                                                    <button>
+                                                    <button onClick={() => {
+                                                        const url = `${window.location.origin}/products/${product.slug}`;
+                                                        const text = `Check out ${product.title} - ₹${product.sale_price || product.regular_price}`;
+                                                        window.open(`https://wa.me/?text=${encodeURIComponent(text + ' ' + url)}`, '_blank');
+                                                    }}>
                                                         <FaShare />
                                                     </button>
                                                 </div>
@@ -268,21 +272,26 @@ export default function SalesProduct({getSaleData}) {
                                                     <h2>{product.title}</h2>
                                                     <p>
                                                         {product.sale_price &&
-                                                        new Date(product.sale_start) <= currentDate &&
-                                                        currentDate <= new Date(product.sale_end)
+                                                        (!product.sale_start || !product.sale_end ||
+                                                         (new Date(product.sale_start) <= currentDate &&
+                                                          currentDate <= new Date(product.sale_end)))
                                                         ? "₹" + product.sale_price
                                                         : "₹" + product.regular_price}
 
                                                         {product.sale_price &&
-                                                        new Date(product.sale_start) <= currentDate &&
-                                                        currentDate <= new Date(product.sale_end) && (
-                                                            <span className="text-muted text-decoration-line-through ms-2">
+                                                        (!product.sale_start || !product.sale_end ||
+                                                         (new Date(product.sale_start) <= currentDate &&
+                                                          currentDate <= new Date(product.sale_end))) && (
+                                                            <span>
                                                             {"₹" + product.regular_price}
                                                             </span>
                                                         )}
                                                     </p>
                                                     <h3>
-                                                        You have save ₹400 this product
+                                                        {product.sale_price 
+                                                          ? `You have save ₹${parseFloat(product.regular_price) - parseFloat(product.sale_price)} this product`
+                                                          : null
+                                                        }
                                                     </h3>
                                                 </div>
 

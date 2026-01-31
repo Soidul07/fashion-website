@@ -284,25 +284,16 @@ export const MenuThemeProvider = ({ children }) => {
 
   // Calculate totals based on cart items
   const calculateTotals = (items) => {
-    const currentDate = new Date();
     const subtotal = items.reduce((total, item) => {
-      const isSaleActive = item.product.sale_price &&
-        new Date(item.product.sale_start) <= currentDate &&
-        currentDate <= new Date(item.product.sale_end);
-      
-      // Ensure the price is a number
-      const price = Number(isSaleActive ? item.product.sale_price : item.product.regular_price);
-      
+      const price = Number(item.product.sale_price || item.product.regular_price);
       return total + (price * item.quantity);
     }, 0);
 
-    // You can modify the total calculation as needed
-    const total = subtotal; // If there are additional fees, you can add them here
+    const total = subtotal;
 
-    // Return numbers instead of strings for further calculations
     return {
       subtotal: parseFloat(subtotal.toFixed(2)),
-      total: parseFloat(total.toFixed(2)), // Modify as needed if you add extra charges
+      total: parseFloat(total.toFixed(2)),
     };
   };
   // Add To Cart Code End   

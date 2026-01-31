@@ -15,6 +15,7 @@ import { MdFilterTiltShift } from "react-icons/md";
 import FairSlider from '@/app/Component/Widgets/product/FairSlider';
 import { FaStar } from "react-icons/fa";
 import { FaStarHalfAlt } from "react-icons/fa";
+import { FaShare } from "react-icons/fa";
 
 
 export default function page() {
@@ -290,6 +291,14 @@ const truncateWords = (text, limit = 3) => {
                         <div className='top'>
                             <div className='row'>
                                 <div className='col-12 col-lg-5 slider_images'>
+
+                                  <button onClick={() => {
+                                    const url = `${window.location.origin}/products/${productDetails.slug}`;
+                                    const text = `Check out ${productDetails.title} - ₹${productDetails.sale_price || productDetails.regular_price}`;
+                                    window.open(`https://wa.me/?text=${encodeURIComponent(text + ' ' + url)}`, '_blank');
+                                }}>
+                                    <FaShare />
+                                </button>
                                 <div className="slider-wrapper">
                                   {galleryImages.length > 0 ? (
                                     <Slider {...settingsMain} asNavFor={nav2} ref={slider => setSlider1(slider)} className="thumbsliderone">
@@ -341,21 +350,22 @@ const truncateWords = (text, limit = 3) => {
                                         {productDetails.regular_price && (
                                           <div className='price_div'>
                                             <div className='save_box'>
-                                              {productDetails.sale_price && 
-                                                new Date(productDetails.sale_start) <= currentDate && 
-                                                currentDate <= new Date(productDetails.sale_end) ? (
-                                                  <h3>
-                                                    {"₹"+productDetails.sale_price} <span>{"₹"+productDetails.regular_price} </span>
-                                                  </h3>
-                                                  
-                                              ):(
-                                                <h3>
-                                                  {"₹"+productDetails.regular_price}
-                                                </h3>
+                                              <h3>
+                                                {productDetails.sale_price
+                                                  ? "₹"+productDetails.sale_price 
+                                                  : "₹"+productDetails.regular_price}
+                                                {" "}
+                                                {productDetails.sale_price && (
+                                                  <span>
+                                                    {"₹"+productDetails.regular_price}
+                                                  </span>
+                                                )}
+                                              </h3>
+                                              {productDetails.sale_price && parseFloat(productDetails.regular_price) > parseFloat(productDetails.sale_price) && (
+                                                <p className='save_number'>
+                                                 Save ₹{(parseFloat(productDetails.regular_price) - parseFloat(productDetails.sale_price)).toFixed(2)}
+                                                </p>
                                               )}
-                                              <p className='save_number'>
-                                                Save 400
-                                              </p>
                                             </div>
                                             <h4>
                                               {productDetails.stock > 0 
@@ -371,99 +381,111 @@ const truncateWords = (text, limit = 3) => {
 
                                         <div className='craft_option'>
                                           <ul>
-                                            <li>
-                                              <div className='craft_laft'>
-                                                <Image src={thread} alt='icon' width={100} height={100} />
-                                              </div>
-                                              <div className='craft_right'>
-                                                <h3>
-                                                  Craft
-                                                </h3>
-                                                <p>
-                                                  Handloom
-                                                </p>
-                                              </div>
-                                            </li>
-                                            <li>
-                                              <div className='craft_laft'>
-                                                <Image src={sewing} alt='icon' width={100} height={100} />
-                                              </div>
-                                              <div className='craft_right'>
-                                                <h3>
-                                                  Material
-                                                </h3>
-                                                <p>
-                                                  Tissue
-                                                </p>
-                                              </div>
-                                            </li>
-                                            <li>
-                                              <div className='craft_laft'>
-                                                <Image src={sewing} alt='icon' width={100} height={100} />
-                                              </div>
-                                              <div className='craft_right'>
-                                                <h3>
-                                                  75 Man hours
-                                                </h3>
-                                                <p>
-                                                  Handwoven in Madhya Pradesh
-                                                </p>
-                                              </div>
-                                            </li>
+                                            {productDetails.craft && (
+                                              <li>
+                                                <div className='craft_laft'>
+                                                  <Image src={thread} alt='icon' width={100} height={100} />
+                                                </div>
+                                                <div className='craft_right'>
+                                                  <h3>Craft</h3>
+                                                  <p>{productDetails.craft}</p>
+                                                </div>
+                                              </li>
+                                            )}
+                                            {productDetails.material && (
+                                              <li>
+                                                <div className='craft_laft'>
+                                                  <Image src={sewing} alt='icon' width={100} height={100} />
+                                                </div>
+                                                <div className='craft_right'>
+                                                  <h3>Material</h3>
+                                                  <p>{productDetails.material}</p>
+                                                </div>
+                                              </li>
+                                            )}
+                                            {productDetails.man_hours && (
+                                              <li>
+                                                <div className='craft_laft'>
+                                                  <Image src={sewing} alt='icon' width={100} height={100} />
+                                                </div>
+                                                <div className='craft_right'>
+                                                  <h3>75 Man hours</h3>
+                                                  <p>{productDetails.man_hours}</p>
+                                                </div>
+                                              </li>
+                                            )}
                                           </ul>
                                         </div>
                                         
-                                        <div className='craft_option more_option'>
-                                          <h2>More Offers</h2>
-                                          <ul>
-                                            <li>
-                                              <div className='craft_right'>
-                                                <h3>
-                                                  1st Order Free Gift
-                                                </h3>
-                                                <p>
-                                                  Canvas Bag – Carry the love! + photo of bag
-                                                </p>
-                                              </div>
-                                            </li>
-                                            <li>
-                                              <div className='craft_right'>
-                                                <h3>
-                                                  3rd Order Free Gift
-                                                </h3>
-                                                <p>
-                                                  Custom T-Shirt – Make it yours! + shirt mockup
-                                                </p>
-                                              </div>
-                                            </li>
-                                          </ul>
-                                        </div>
-
-                                        <div className='craft_option size_option'>
-                                          <div className='size_flex'>
-                                            <h2>Size</h2>
-                                            <button onClick={() => setOpen(true)}>
-                                              Size All
-                                            </button>
+                                        {(productDetails.first_order_free_gift || productDetails.third_order_free_gift) && (
+                                          <div className='craft_option more_option'>
+                                            <h2>More Offers</h2>
+                                            <ul>
+                                              {productDetails.first_order_free_gift && (
+                                                <li>
+                                                  <div className='craft_right'>
+                                                    <h3>1st Order Free Gift</h3>
+                                                    <p>{productDetails.first_order_free_gift}</p>
+                                                  </div>
+                                                </li>
+                                              )}
+                                              {productDetails.third_order_free_gift && (
+                                                <li>
+                                                  <div className='craft_right'>
+                                                    <h3>3rd Order Free Gift</h3>
+                                                    <p>{productDetails.third_order_free_gift}</p>
+                                                  </div>
+                                                </li>
+                                              )}
+                                            </ul>
                                           </div>
-                                          <ul className="size_list">
-                                            {["XS", "S", "M", "L", "XL", "XXL"].map((size) => (
-                                              <li key={size}>
-                                                <div className="craft_right">
-                                                  <input
-                                                    type="radio"
-                                                    name="size"
-                                                    id={`size-${size}`}
-                                                    className="size_radio"
-                                                  />
-                                                  <label htmlFor={`size-${size}`} className="size_btn">
-                                                    {size}
-                                                  </label>
-                                                </div>
-                                              </li>
-                                            ))}
-                                          </ul>
-                                        </div>
+                                        )}
+
+                                        {productDetails.product_type === 'blouse' && (
+                                          <div className='craft_option size_option'>
+                                            <div className='size_flex'>
+                                              <h2>Size</h2>
+                                              <button onClick={() => setOpen(true)}>
+                                                Size All
+                                              </button>
+                                            </div>
+                                            <ul className="size_list">
+                                              {productDetails.size && (
+                                                Array.isArray(productDetails.size) 
+                                                  ? productDetails.size.map((size) => (
+                                                      <li key={size}>
+                                                        <div className="craft_right">
+                                                          <input
+                                                            type="radio"
+                                                            name="size"
+                                                            id={`size-${size}`}
+                                                            className="size_radio"
+                                                          />
+                                                          <label htmlFor={`size-${size}`} className="size_btn">
+                                                            {size}
+                                                          </label>
+                                                        </div>
+                                                      </li>
+                                                    ))
+                                                  : productDetails.size.split(',').map((size) => (
+                                                      <li key={size.trim()}>
+                                                        <div className="craft_right">
+                                                          <input
+                                                            type="radio"
+                                                            name="size"
+                                                            id={`size-${size.trim()}`}
+                                                            className="size_radio"
+                                                          />
+                                                          <label htmlFor={`size-${size.trim()}`} className="size_btn">
+                                                            {size.trim()}
+                                                          </label>
+                                                        </div>
+                                                      </li>
+                                                    ))
+                                              )}
+                                            </ul>
+                                          </div>
+                                        )}
                                     </div>
                                     <div className='slider_cart'>
                                         <div className='active_cart_btn'>
@@ -638,7 +660,9 @@ const truncateWords = (text, limit = 3) => {
                                       </ul>
                                     </div>
 
-                                    <FairSlider />
+                                    {productDetails.matching_blouses_data && productDetails.matching_blouses_data.length > 0 && (
+                                      <FairSlider matchingBlouses={productDetails.matching_blouses_data} />
+                                    )}
 
                                     <div className='details_paragraphy'>
                                       <div dangerouslySetInnerHTML={{ __html: productDetails.short_description }} />

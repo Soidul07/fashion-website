@@ -5,19 +5,18 @@ import Image from 'next/image';
 import Slider from "react-slick";
 import { BlankImage,thread,sewing,gift,giftbox,worldwide,brand,anvikafront } from "../../../assets/index";
 
-export default function FairSlider() {
+export default function FairSlider({ matchingBlouses = [] }) {
 
     var sliderpair = {
-        infinite:true, 
+        infinite: false, 
         speed: 2000,
-        slidesToShow:3, 
-        slidesToScroll:1,
+        slidesToShow: 3, 
+        slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 2000,
         dots: false,
         arrows: true,
         fade: false,
-        loop: true,
         responsive: [
             {
               breakpoint: 1024,
@@ -43,75 +42,44 @@ export default function FairSlider() {
         ]
     };
 
+    if (matchingBlouses.length === 0) {
+        return (
+            <div className='pair_slider'>
+                <h2>Pair with the Readymade blouse</h2>
+                <p>No matching blouse found</p>
+            </div>
+        );
+    }
+
     return (
         <div className='pair_slider'>
             <h2>Pair with the Readymade blouse</h2>
             <h6>Model is wearing blouse in size XS</h6>
             <Slider {...sliderpair} asNavFor={null} className="pair-only-slider">
-                <div className='item'>
-                    <Link href="#" className='pair_box'>
-                        <div className='pair_image'>
-                            <Image src={anvikafront} alt='pair image' width={600} height={600} />
-                        </div>
-                        <div className='pair_price_border'>
-                            <div className='pair_price'>
-                                <h3>Azara</h3>
-                                <h4>₹2,520 <span>₹3,500</span></h4>
+                {matchingBlouses.map((blouse, index) => (
+                    <div className='item' key={index}>
+                        <Link href={`/products/${blouse.slug}`} className='pair_box'>
+                            <div className='pair_image'>
+                                <Image src={blouse.product_image || BlankImage} alt={blouse.title} width={600} height={600} />
                             </div>
-                            <div className='pair_button'>
-                                <p>Select Size</p>
+                            <div className='pair_price_border'>
+                                <div className='pair_price'>
+                                    <h3>{blouse.title.split(' ').slice(0, 2).join(' ')}</h3>
+                                    <h4>
+                                        {blouse.sale_price ? (
+                                            <>₹{blouse.sale_price} <span>₹{blouse.regular_price}</span></>
+                                        ) : (
+                                            <>₹{blouse.regular_price}</>
+                                        )}
+                                    </h4>
+                                </div>
+                                <div className='pair_button'>
+                                    <p>Select Size</p>
+                                </div>
                             </div>
-                        </div>
-                    </Link>
-                </div>
-                <div className='item'>
-                    <Link href="#" className='pair_box'>
-                        <div className='pair_image'>
-                            <Image src={anvikafront} alt='pair image' width={600} height={600} />
-                        </div>
-                        <div className='pair_price_border'>
-                            <div className='pair_price'>
-                                <h3>Azara</h3>
-                                <h4>₹2,520 <span>₹3,500</span></h4>
-                            </div>
-                            <div className='pair_button'>
-                                <p>Select Size</p>
-                            </div>
-                        </div>
-                    </Link>
-                </div>
-                <div className='item'>
-                    <Link href="#" className='pair_box'>
-                        <div className='pair_image'>
-                            <Image src={anvikafront} alt='pair image' width={600} height={600} />
-                        </div>
-                        <div className='pair_price_border'>
-                            <div className='pair_price'>
-                                <h3>Azara</h3>
-                                <h4>₹2,520 <span>₹3,500</span></h4>
-                            </div>
-                            <div className='pair_button'>
-                                <p>Select Size</p>
-                            </div>
-                        </div>
-                    </Link>
-                </div>
-                <div className='item'>
-                    <Link href="#" className='pair_box'>
-                        <div className='pair_image'>
-                            <Image src={anvikafront} alt='pair image' width={600} height={600} />
-                        </div>
-                        <div className='pair_price_border'>
-                            <div className='pair_price'>
-                                <h3>Azara</h3>
-                                <h4>₹2,520 <span>₹3,500</span></h4>
-                            </div>
-                            <div className='pair_button'>
-                                <p>Select Size</p>
-                            </div>
-                        </div>
-                    </Link>
-                </div>
+                        </Link>
+                    </div>
+                ))}
             </Slider>
         </div>
     )
