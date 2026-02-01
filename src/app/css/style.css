@@ -2965,6 +2965,7 @@ footer .footer_top .link li a:hover {
 .categories_details .top .slider_details .slider_details_text h2 {
   font-size: 1.4rem;
   text-transform: capitalize;
+  padding-right: 40px;
 }
 .categories_details .top .slider_details .slider_details_text .pro_star ul {
   display: flex;
