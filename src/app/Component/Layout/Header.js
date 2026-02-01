@@ -21,7 +21,7 @@ import { FaHeart } from "react-icons/fa";
 import { AiOutlineHome } from "react-icons/ai";
 import { IoClose } from "react-icons/io5";
 import { FaArrowLeftLong } from "react-icons/fa6";
-
+import { FaShare } from "react-icons/fa";
 import { usePathname } from "next/navigation";
 
 const currentDate = new Date();
@@ -236,32 +236,56 @@ export default function Header() {
                                           {category.latest_products.map((product) => (
                                             <div key={product.id} className="col-4 padding">
                                               <div className="product_box">
-                                                <Link href={`/products/${product.slug}`} className="product_box_image">
-                                                  <div className="images">
-                                                    <Image
-                                                      src={product.product_image}
-                                                      alt={product.title}
-                                                      width={225}
-                                                      height={300}
-                                                      className="productOne"
-                                                    />
-                                                    <Image
-                                                      src={product.product_image2}
-                                                      alt={product.title}
-                                                      width={675}
-                                                      height={900}
-                                                      className="productTwo"
-                                                    />
-                                                  </div>
-                                                  {product.sale_price &&
-                                                    new Date(product.sale_start) <= currentDate &&
-                                                    currentDate <= new Date(product.sale_end) && (
-                                                      <div className="sale">
-                                                        <p>Sale</p>
-                                                        <p>{product.discount_percentage}% off</p>
-                                                      </div>
-                                                    )}
-                                                </Link>
+                                                <div className='pro_box_po'>
+                                                  <Link href={`/products/${product.slug}`} className="product_box_image">
+                                                    <div className="images">
+                                                      <Image
+                                                        src={product.product_image}
+                                                        alt={product.title}
+                                                        width={225}
+                                                        height={300}
+                                                        className="productOne"
+                                                      />
+                                                      <Image
+                                                        src={product.product_image2}
+                                                        alt={product.title}
+                                                        width={675}
+                                                        height={900}
+                                                        className="productTwo"
+                                                      />
+                                                    </div>
+                                                    {product.sale_price &&
+                                                      new Date(product.sale_start) <= currentDate &&
+                                                      currentDate <= new Date(product.sale_end) && (
+                                                        <div className="sale">
+                                                          <p>Sale</p>
+                                                          <p>{product.discount_percentage}% off</p>
+                                                        </div>
+                                                      )}
+                                                  </Link>
+                                                  {product.stock > 0 ? (
+                                                    <div className="cart_btn">
+                                                      <button
+                                                        onClick={() => handleAddToCart(product)}
+                                                        disabled={isLoadingCart || quantity <= 0}
+                                                      >
+                                                        {isLoadingCart ? 
+                                                          (
+                                                              "Adding.."
+                                                          ) : (
+                                                            <>
+                                                                <MdOutlineShoppingBag />
+                                                            </>
+                                                          )  
+                                                        }
+                                                      </button>
+                                                    </div>
+                                                  ) : (
+                                                    <div className="cart_btn">
+                                                      <button disabled>Out of stock</button>
+                                                    </div>
+                                                  )}
+                                                </div>
 
                                                 {/* Product Info */}
                                                 <div className="product_box_text">
@@ -281,24 +305,17 @@ export default function Header() {
                                                         </span>
                                                       )}
                                                   </p>
-                                                  {product.stock > 0 ? (
-                                                    <div className="cart_btn">
-                                                      <button
-                                                        onClick={() => handleAddToCart(product)}
-                                                        disabled={isLoadingCart || quantity <= 0}
-                                                      >
-                                                        {isLoadingCart ? "Adding..." : "Add To Cart"}
-                                                      </button>
-                                                    </div>
-                                                  ) : (
-                                                    <div className="cart_btn">
-                                                      <button disabled>Out of stock</button>
-                                                    </div>
-                                                  )}
                                                 </div>
                                                 <div className="like">
                                                   <button onClick={() => handleWishlist(product)}>
                                                     <FaHeart />
+                                                  </button>
+                                                  <button onClick={() => {
+                                                      const url = `${window.location.origin}/products/${product.slug}`;
+                                                      const text = `Check out ${product.title} - ₹${product.sale_price || product.regular_price}`;
+                                                      window.open(`https://wa.me/?text=${encodeURIComponent(text + ' ' + url)}`, '_blank');
+                                                  }}>
+                                                      <FaShare />
                                                   </button>
                                                 </div>
                                               </div>

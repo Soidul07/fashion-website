@@ -153,7 +153,7 @@ export default function CategoryPage() {
                         <div className='product_box_text'>
                           <h2>{product.title}</h2>
 
-                          <p>
+                          {/* <p>
                             {product.sale_price && 
                               (!product.sale_start || !product.sale_end ||
                                (new Date(product.sale_start) <= currentDate && 
@@ -169,10 +169,27 @@ export default function CategoryPage() {
                                   {"₹"+product.regular_price}
                                 </span>
                             )}
+                          </p> */}
+                          <p>
+                              {product.sale_price && 
+                                (!product.sale_start || !product.sale_end || 
+                                  (new Date(product.sale_start) <= currentDate && 
+                                  currentDate <= new Date(product.sale_end)))
+                                ? "₹"+product.sale_price 
+                                : "₹"+product.regular_price}
+                              
+                              {product.sale_price && 
+                                (!product.sale_start || !product.sale_end || 
+                                  (new Date(product.sale_start) <= currentDate && 
+                                  currentDate <= new Date(product.sale_end))) && (
+                                  <span>
+                                    {"₹"+product.regular_price}
+                                  </span>
+                              )}
                           </p>
                           <h3>
                             {product.sale_price 
-                              ? `You have save ₹${parseFloat(product.regular_price) - parseFloat(product.sale_price)} this product`
+                              ? `Only save ₹${parseFloat(product.regular_price) - parseFloat(product.sale_price)} rupees`
                               : null
                             }
                           </h3>

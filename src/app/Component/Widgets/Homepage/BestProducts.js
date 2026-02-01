@@ -59,7 +59,7 @@ export default function BestProducts() {
                         <>
                         <div className='top'>
                             <div className='heading'>
-                                <h2>Trending Best Selling Products11</h2>
+                                <h2>Trending Best Selling Products</h2>
                             </div>
                             <div className='all_product'>
                                 <Link href='/products'>
@@ -154,7 +154,7 @@ export default function BestProducts() {
                                                 </p>
                                                 <h3>
                                                     {product.sale_price 
-                                                      ? `You have save ₹${parseFloat(product.regular_price) - parseFloat(product.sale_price)} this product`
+                                                      ? `Only save ₹${parseFloat(product.regular_price) - parseFloat(product.sale_price)} rupees`
                                                       : null
                                                     }
                                                 </h3>

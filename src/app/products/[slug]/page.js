@@ -291,51 +291,51 @@ const truncateWords = (text, limit = 3) => {
                         <div className='top'>
                             <div className='row'>
                                 <div className='col-12 col-lg-5 slider_images'>
-
-                                  <button onClick={() => {
-                                    const url = `${window.location.origin}/products/${productDetails.slug}`;
-                                    const text = `Check out ${productDetails.title} - ₹${productDetails.sale_price || productDetails.regular_price}`;
-                                    window.open(`https://wa.me/?text=${encodeURIComponent(text + ' ' + url)}`, '_blank');
-                                }}>
-                                    <FaShare />
-                                </button>
-                                <div className="slider-wrapper">
-                                  {galleryImages.length > 0 ? (
-                                    <Slider {...settingsMain} asNavFor={nav2} ref={slider => setSlider1(slider)} className="thumbsliderone">
-                                      {galleryImages.map((item, i) => (
-                                        <div className="thumb_image" key={i}>
-                                          <Image src={item.pro_image} alt={`slider-image-${i}`} width={225} height={300} />
+                                  <div className="slider-wrapper">
+                                    {galleryImages.length > 0 ? (
+                                      <Slider {...settingsMain} asNavFor={nav2} ref={slider => setSlider1(slider)} className="thumbsliderone">
+                                        {galleryImages.map((item, i) => (
+                                          <div className="thumb_image" key={i}>
+                                            <Image src={item.pro_image} alt={`slider-image-${i}`} width={225} height={300} />
+                                          </div>
+                                        ))}
+                                      </Slider>
+                                    ) : (
+                                      <Slider {...settingsMain} asNavFor={nav2} ref={slider => setSlider1(slider)} className="thumbsliderone">
+                                        <div className="thumb_image">
+                                          <Image 
+                                            src={productDetails?.product_image || BlankImage} 
+                                            alt="default-product-image" 
+                                            width={225} 
+                                            height={300} 
+                                          />
                                         </div>
-                                      ))}
-                                    </Slider>
-                                  ) : (
-                                    <Slider {...settingsMain} asNavFor={nav2} ref={slider => setSlider1(slider)} className="thumbsliderone">
-                                      <div className="thumb_image">
-                                        <Image 
-                                          src={productDetails?.product_image || BlankImage} 
-                                          alt="default-product-image" 
-                                          width={225} 
-                                          height={300} 
-                                        />
-                                      </div>
-                                    </Slider>
-                                  )}
+                                      </Slider>
+                                    )}
 
-                                  {/* Thumbnails slider */}
-                                  {galleryImages.length > 0 ? (
-                                    <Slider {...settingsThumbs} asNavFor={nav1} ref={slider => setSlider2(slider)} className="thumbslidertwo">
-                                      {galleryImages.map((item, i) => (
-                                        <div className="thumb_image" key={i}>
-                                          <Image src={item.pro_image} alt={`thumb-image-${i}`} width={225} height={300} />
-                                        </div>
-                                      ))}
-                                    </Slider>
-                                  ): null }
-                                </div>
-
+                                    {/* Thumbnails slider */}
+                                    {galleryImages.length > 0 ? (
+                                      <Slider {...settingsThumbs} asNavFor={nav1} ref={slider => setSlider2(slider)} className="thumbslidertwo">
+                                        {galleryImages.map((item, i) => (
+                                          <div className="thumb_image" key={i}>
+                                            <Image src={item.pro_image} alt={`thumb-image-${i}`} width={225} height={300} />
+                                          </div>
+                                        ))}
+                                      </Slider>
+                                    ): null }
+                                  </div>
                                 </div>
                                 <div className='col-12 col-lg-7 slider_details'>
                                     <div className='slider_details_text'>
+                                      <div className='share_button'>
+                                        <button onClick={() => {
+                                            const url = `${window.location.origin}/products/${productDetails.slug}`;
+                                            const text = `Check out ${productDetails.title} - ₹${productDetails.sale_price || productDetails.regular_price}`;
+                                            window.open(`https://wa.me/?text=${encodeURIComponent(text + ' ' + url)}`, '_blank');
+                                        }}>
+                                          <FaShare />
+                                        </button>
+                                      </div>
                                         <h2>{productDetails.title}</h2>
                                         <div className='pro_star'>
                                           <ul>
@@ -653,7 +653,15 @@ const truncateWords = (text, limit = 3) => {
                                               Rewards
                                             </h3>
                                             <p>
-                                              Sustainability and eco-friendly
+                                              Join the Green Petal Movement,
+                                              Fashion shouldn&apos;t cost the Earth.<br/>
+                                              Green Actions & Points:<br/>
+                                              Plastic-free shipping + tote → +50 points, 
+                                              Google review with photo → +50 points,
+                                              Post outfit & tag @5petalin → +50 points<br/>
+                                              Your Rewards<br/>
+                                              150 points → ₹150 off next order,
+                                              500 points → Surprise gift + name on our Wall of Green
                                             </p>
                                           </div>
                                         </li>

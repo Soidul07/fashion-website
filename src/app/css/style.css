@@ -528,6 +528,7 @@ header.inner_header .header_main .humbergers button svg {
 }
 .mega_menu .category_menu_box .best_products {
   padding-top: 0px;
+  background: none;
 }
 .mega_menu .category_menu_box .best_products .bottom {
   padding-top: 0px;
@@ -549,7 +550,7 @@ header.inner_header .header_main .humbergers button svg {
   padding: 8px 0 0 0;
 }
 .mega_menu .category_menu_ads {
-  height: 300px;
+  height: 342px;
 }
 .mega_menu .category_menu_ads img {
   width: 100%;
@@ -2938,6 +2939,28 @@ footer .footer_top .link li a:hover {
   -o-object-position: top;
      object-position: top;
   transition: all ease-in-out 0.55s;
+}
+.categories_details .top .slider_details .slider_details_text {
+  position: relative;
+}
+.categories_details .top .slider_details .slider_details_text .share_button {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.categories_details .top .slider_details .slider_details_text .share_button button {
+  background: #f9ecec;
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.categories_details .top .slider_details .slider_details_text .share_button button svg {
+  width: 14px;
+  height: 14px;
+  fill: var(--darkRed);
 }
 .categories_details .top .slider_details .slider_details_text h2 {
   font-size: 1.4rem;
@@ -5533,6 +5556,10 @@ footer .footer_top .link li a:hover {
   top: 15px;
   right: 15px;
   color: #fff;
+}
+
+.header_product_box.best_products .bottom .product_box .product_box_image .images::before {
+  padding-top: 100% !important;
 }
 
 /***************** profile edit innear page end *********************//*# sourceMappingURL=style.css.map */

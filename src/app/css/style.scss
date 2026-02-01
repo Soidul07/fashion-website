@@ -934,6 +934,7 @@ header  {
         }
         .best_products {
             padding-top: 0px;
+            background: none;
             .bottom {
                 padding-top: 0px;
                 .padding {
@@ -958,7 +959,7 @@ header  {
         } 
     }
     .category_menu_ads  {
-        height: 300px;
+        height: 342px;
         img  {
             width: 100%;
             height: 100%;
@@ -2933,6 +2934,26 @@ footer  {
         }
         .slider_details  {
             .slider_details_text  {
+                position: relative;
+                .share_button {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    button {
+                        background: #f9ecec;
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 50px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        svg  {
+                            width: 14px;
+                            height: 14px;
+                            fill: var(--darkRed);
+                        }
+                    }
+                }
                 h2  {
                     font-size: 1.4rem;
                     text-transform: capitalize;
@@ -5702,6 +5723,10 @@ footer  {
         right: 15px;
         color: #fff;
     }
+}
+
+.header_product_box.best_products .bottom .product_box .product_box_image .images::before {
+    padding-top: 100% !important;
 }
 
 /***************** profile edit innear page end *********************/

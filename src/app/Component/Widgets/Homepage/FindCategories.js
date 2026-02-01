@@ -213,7 +213,7 @@ export default function FindCategories() {
                                                                 </p>
                                                                 <h3>
                                                                     {product.sale_price 
-                                                                      ? `You have save ₹${parseFloat(product.regular_price) - parseFloat(product.sale_price)} this product`
+                                                                      ? `Only save ₹${parseFloat(product.regular_price) - parseFloat(product.sale_price)} rupees`
                                                                       : null
                                                                     }
                                                                 </h3>
@@ -305,7 +305,7 @@ export default function FindCategories() {
                                                                     </p>
                                                                     <h3>
                                                                         {product.sale_price 
-                                                                          ? `You have save ₹${parseFloat(product.regular_price) - parseFloat(product.sale_price)} this product`
+                                                                          ? `Only save ₹${parseFloat(product.regular_price) - parseFloat(product.sale_price)} rupees`
                                                                           : null
                                                                         }
                                                                     </h3>
