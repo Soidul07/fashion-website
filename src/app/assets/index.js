@@ -84,6 +84,7 @@ import anvikafront from '../assets/images/homepage/anvika_front.webp';
 import brand from '../assets/images/homepage/brand.png';
 import measureimage from '../assets/images/homepage/measurements.webp';
 import bellgif from '../assets/images/homepage/bell.gif';
+import promotion from '../assets/images/homepage/promotion.png';
 
 
 export {
@@ -100,5 +101,5 @@ export {
     paymentimage,WhatsappLogo,
     Percentagelogo,Upilogo,Gpaylogo,Phonepaylogo,Sbilogo,Icicilogo,Axislogo,Hdfclogo,BlankImage,
     ShopingGif,CanceledGif,Footerbackground,customer1,customer2,customer3,customer4,BagIcon,TShirt,Delivery,
-    thread,sewing,focus,worldwide,gift,giftbox,anvikafront,brand,measureimage,bellgif
+    thread,sewing,focus,worldwide,gift,giftbox,anvikafront,brand,measureimage,bellgif,promotion
 }

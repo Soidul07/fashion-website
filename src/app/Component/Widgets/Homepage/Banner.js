@@ -37,7 +37,8 @@ export default function Banner({ getSeasonCategories,getlatestCategoriesBanners,
                         {getlatestCategoriesBanners.map((category, index) => (
                             <div className='item' key={index}>
                                 <Link href={`/categories/${category.slug}`} className='banner_bix_box'>
-                                    <Image src={category.cat_banner_image ? category.cat_banner_image : '/default-product.jpg'} alt='banner image' width={600} height={600} />
+                                    <Image src={category.cat_banner_image ? category.cat_banner_image : '/default-product.jpg'} className='banner_desktop' alt='banner image' width={600} height={600} />
+                                    <Image src={category.cat_banner_image ? category.cat_banner_image : '/default-product.jpg'} className='banner_mobile' alt='banner image' width={600} height={600} />
                                 </Link>
                             </div>
                         ))}

@@ -130,7 +130,7 @@ export default function SignModal() {
                                                 </div>
                                                 <h4>Because Once Isn&apos;t Enough</h4>
                                                 <p>
-                                                    Free Customised T-Shirt on your 3rd Purchase – Because once isn&apos;t enough.
+                                                    Free Customised T-Shirt on your 3rd Purchase.
                                                 </p>
                                             </div>
                                         </div>

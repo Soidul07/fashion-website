@@ -3,7 +3,7 @@ import React, { useState, useContext } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Layouts } from '../Component';
-import { BlankImage } from "../assets/index";
+import { BlankImage,TShirt,BagIcon,promotion } from "../assets/index";
 import { MenuThemeContext } from '../globalstate/GlobalStateContext';
 import { FaRegHeart } from "react-icons/fa";
 import { RiDeleteBin5Line } from "react-icons/ri";
@@ -133,6 +133,28 @@ export default function CartPage() {
                       </div>
                     </div>
                     <div className='col-md-4 col-12'>
+                      <div className='gift_offer_box'>
+                        <ul>
+                          <li>
+                            <span>
+                              <Image src={BagIcon} alt='icon' />
+                            </span>
+                            <p>Canvas Bag Free</p>
+                          </li>
+                          <li>
+                            <span>
+                              <Image src={promotion} alt='icon' />
+                            </span>
+                            <p>Purchase 5 % off</p>
+                          </li>
+                          <li>
+                            <span>
+                              <Image src={TShirt} alt='icon' />
+                            </span>
+                            <p>Customize T-Shirt Free</p>
+                          </li>
+                        </ul>
+                      </div>
                       <div className='total_div'>
                         <p>Cart Total</p>
                         <table className='total_table'>
