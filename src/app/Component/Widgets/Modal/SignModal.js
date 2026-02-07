@@ -199,7 +199,7 @@ export default function SignModal() {
                                         <FaWhatsapp />
                                         Whatsapp
                                     </Link>
-                                    <p>I accepted that i have read & understood Flystyle 
+                                    <p>I accepted that i have read & understood 5petal
                                         <Link href="/privacy-policy">Privacy Policy</Link>
                                         and
                                         <Link href="/terms-and-conditions">T&Cs</Link>

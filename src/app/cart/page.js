@@ -139,19 +139,19 @@ export default function CartPage() {
                             <span>
                               <Image src={BagIcon} alt='icon' />
                             </span>
-                            <p>Canvas Bag Free</p>
+                            <p>1nd purchase <br/> Canvas Bag Free</p>
                           </li>
                           <li>
                             <span>
                               <Image src={promotion} alt='icon' />
                             </span>
-                            <p>Purchase 5 % off</p>
+                            <p>2nd purchase <br/> Purchase 5 % off</p>
                           </li>
                           <li>
                             <span>
                               <Image src={TShirt} alt='icon' />
                             </span>
-                            <p>Customize T-Shirt Free</p>
+                            <p>3nd purchase <br/> Customize T-Shirt Free</p>
                           </li>
                         </ul>
                       </div>
