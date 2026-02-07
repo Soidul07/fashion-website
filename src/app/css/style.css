@@ -2970,6 +2970,11 @@ footer .footer_top .link li a:hover {
   text-transform: capitalize;
   padding-right: 40px;
 }
+.categories_details .top .slider_details .slider_details_text .pro_star {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 .categories_details .top .slider_details .slider_details_text .pro_star ul {
   display: flex;
   align-items: center;
@@ -2988,6 +2993,11 @@ footer .footer_top .link li a:hover {
 .categories_details .top .slider_details .slider_details_text .pro_star ul li:last-child {
   padding-left: 10px;
   padding-top: 2px;
+}
+.categories_details .top .slider_details .slider_details_text .pro_star p {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--fonttext);
 }
 .categories_details .top .slider_details .slider_details_text .price_div {
   margin-top: 14px;

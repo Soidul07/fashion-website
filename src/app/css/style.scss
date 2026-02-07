@@ -2963,6 +2963,9 @@ footer  {
                     padding-right: 40px;
                 }
                 .pro_star {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
                     ul {
                         display: flex;
                         align-items: center;
@@ -2981,6 +2984,11 @@ footer  {
                                 padding-top: 2px;
                             }
                         }
+                    }
+                    p {
+                       font-size: 0.8rem;
+                        font-weight: 500;
+                        color: var(--fonttext); 
                     }
                 }
                 .price_div  {
