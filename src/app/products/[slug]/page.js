@@ -346,6 +346,7 @@ const truncateWords = (text, limit = 3) => {
                                             <li><FaStarHalfAlt /></li>
                                             <li>(4.5)</li>
                                           </ul>
+                                          <p>| 10 Reviews</p>
                                         </div>
                                         {productDetails.regular_price && (
                                           <div className='price_div'>
