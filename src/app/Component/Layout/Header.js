@@ -254,9 +254,7 @@ export default function Header() {
                                                         className="productTwo"
                                                       />
                                                     </div>
-                                                    {product.sale_price &&
-                                                      new Date(product.sale_start) <= currentDate &&
-                                                      currentDate <= new Date(product.sale_end) && (
+                                                    {product.sale_price && parseFloat(product.regular_price) > parseFloat(product.sale_price) && (
                                                         <div className="sale">
                                                           <p>Sale</p>
                                                           <p>{product.discount_percentage}% off</p>
