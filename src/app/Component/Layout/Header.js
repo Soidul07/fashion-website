@@ -288,24 +288,33 @@ export default function Header() {
                                                 {/* Product Info */}
                                                 <div className="product_box_text">
                                                   <h2>{product.title}</h2>
-                                                 <div className='save_box'>
-                                              <h3>
-                                                {product.sale_price
-                                                  ? "₹"+product.sale_price 
-                                                  : "₹"+product.regular_price}
-                                                {" "}
-                                                {product.sale_price && (
-                                                  <span>
-                                                    {"₹"+product.regular_price}
-                                                  </span>
-                                                )}
-                                              </h3>
-                                              {product.sale_price && parseFloat(product.regular_price) > parseFloat(product.sale_price) && (
-                                                <p className='save_number'>
-                                                 Save ₹{(parseFloat(product.regular_price) - parseFloat(product.sale_price)).toFixed(2)}
-                                                </p>
-                                              )}
-                                            </div>
+                                                  <div className='save_box'>
+                                                    <h3>
+                                                      {product.sale_price && 
+                                                      (!product.sale_start || !product.sale_end || 
+                                                      (new Date(product.sale_start) <= currentDate && 
+                                                      currentDate <= new Date(product.sale_end)))
+                                                        ? "₹"+product.sale_price 
+                                                        : "₹"+product.regular_price}
+                                                      {" "}
+                                                      {product.sale_price && 
+                                                      (!product.sale_start || !product.sale_end || 
+                                                      (new Date(product.sale_start) <= currentDate && 
+                                                      currentDate <= new Date(product.sale_end))) && (
+                                                        <span>
+                                                          {"₹"+product.regular_price}
+                                                        </span>
+                                                      )}
+                                                    </h3>
+                                                    {product.sale_price && parseFloat(product.regular_price) > parseFloat(product.sale_price) && 
+                                                    (!product.sale_start || !product.sale_end || 
+                                                    (new Date(product.sale_start) <= currentDate && 
+                                                    currentDate <= new Date(product.sale_end))) && (
+                                                      <p className='save_number'>
+                                                        Save ₹{(parseFloat(product.regular_price) - parseFloat(product.sale_price)).toFixed(2)}
+                                                      </p>
+                                                    )}
+                                                  </div>
                                                 </div>
                                                 <div className="like">
                                                   <button onClick={() => handleWishlist(product)}>
