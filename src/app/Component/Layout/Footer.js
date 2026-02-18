@@ -18,7 +18,7 @@ export default function Footer() {
     socialLinks = {};
   }
   return (
-    <footer style={{backgroundImage: `url(${themeOptionsData?.footer_image1 || Footerbackground})`,}}>
+    <footer style={{backgroundImage: `url(${themeOptionsData?.footer_image2 || Footerbackground})`,}}>
       <div className='footer_top'>
         <div className='container'>
           <div className='row'>
