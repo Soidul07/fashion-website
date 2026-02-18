@@ -2044,13 +2044,13 @@ footer .footer_bottom ul {
   display: flex;
   align-items: center;
 }
+footer .footer_bottom ul li:not(:last-child) {
+  padding-right: 10px;
+}
 footer .footer_bottom ul li {
   font-size: 0.8rem;
   font-weight: 400;
   color: var(--white);
-}
-footer .footer_bottom ul li:not(:last-child) {
-  padding-right: 10px;
 }
 footer .footer_bottom ul li a {
   font-size: 0.8rem;
@@ -2249,9 +2249,6 @@ footer .footer_bottom img {
   padding-top: 30px;
   position: relative;
 }
-.Sign_modal .Sign_modal_box .Sign_modal_background .Sign_modal_colour .modal_text .limited_text h4 {
-  position: relative;
-}
 .Sign_modal .Sign_modal_box .Sign_modal_background .Sign_modal_colour .modal_text .limited_text h4 span {
   font-size: 1rem;
   font-weight: 500;
@@ -2259,6 +2256,9 @@ footer .footer_bottom img {
   background: var(--white);
   padding: 0 20px;
   z-index: 1;
+  position: relative;
+}
+.Sign_modal .Sign_modal_box .Sign_modal_background .Sign_modal_colour .modal_text .limited_text h4 {
   position: relative;
 }
 .Sign_modal .Sign_modal_box .Sign_modal_background .Sign_modal_colour .modal_text .limited_text h4::after {
@@ -2472,11 +2472,6 @@ footer .footer_bottom img {
   justify-content: space-between;
   align-items: center;
 }
-.categories_details .top .slider_details .slider_details_text .price_div h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--redfont);
-}
 .categories_details .top .slider_details .slider_details_text .price_div h3 span {
   font-size: 1rem;
   font-weight: 500;
@@ -2484,6 +2479,11 @@ footer .footer_bottom img {
   text-decoration: line-through;
   padding-right: 6px;
   display: inline;
+}
+.categories_details .top .slider_details .slider_details_text .price_div h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--redfont);
 }
 .categories_details .top .slider_details .slider_details_text .price_div h4 {
   font-size: 0.7rem;
@@ -3618,6 +3618,9 @@ footer .footer_bottom img {
 .wishlist_panel.cart_panel .view_list .heading_table .table_head ul {
   display: flex;
 }
+.wishlist_panel.cart_panel .view_list .heading_table .table_head ul li:first-child {
+  width: 33%;
+}
 .wishlist_panel.cart_panel .view_list .heading_table .table_head ul li {
   width: 23%;
   background: #f1f5f9;
@@ -3629,9 +3632,6 @@ footer .footer_bottom img {
   border: none;
   border-radius: 0;
   margin-bottom: 0;
-}
-.wishlist_panel.cart_panel .view_list .heading_table .table_head ul li:first-child {
-  width: 33%;
 }
 .wishlist_panel.cart_panel .view_list .heading_table .table_head ul li:last-child {
   width: 10%;
@@ -4012,6 +4012,9 @@ footer .footer_bottom img {
 .policy_div .policy_box h3 span {
   padding-right: 10px;
 }
+.policy_div .policy_box ul li:not(:last-child) {
+  padding-bottom: 14px;
+}
 .policy_div .policy_box ul li {
   font-size: 0.9rem;
   font-weight: 500;
@@ -4019,9 +4022,6 @@ footer .footer_bottom img {
   padding-left: 40px;
   display: flex;
   gap: 14px;
-}
-.policy_div .policy_box ul li:not(:last-child) {
-  padding-bottom: 14px;
 }
 .policy_div .policy_box ul li span svg {
   fill: var(--fonttext);
