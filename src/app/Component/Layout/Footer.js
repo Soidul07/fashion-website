@@ -6,6 +6,7 @@ import { FaRegPaperPlane } from "react-icons/fa";
 import { FaHeadphonesAlt } from "react-icons/fa";
 import { BlankImage } from "../../assets/index";
 import { MenuThemeContext } from "../../globalstate/GlobalStateContext";
+import { Footerbackground } from "../../assets/index";
 
 export default function Footer() {
   const { themeOptionsData, categoryMenus } = useContext(MenuThemeContext);
@@ -17,7 +18,7 @@ export default function Footer() {
     socialLinks = {};
   }
   return (
-    <footer style={{backgroundImage: `url(${themeOptionsData?.footer_image2 || Footerbackground})`,}}>
+    <footer style={{backgroundImage: `url(${themeOptionsData?.footer_image1 || Footerbackground})`,}}>
       <div className='footer_top'>
         <div className='container'>
           <div className='row'>
