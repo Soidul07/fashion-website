@@ -1118,6 +1118,9 @@ header.inner_header .header_main .humbergers button svg {
   position: relative;
   display: block;
 }
+.ads_section .ads_image:last-child {
+  margin-top: 15px;
+}
 .ads_section .ads_image::after {
   content: "";
   display: block;

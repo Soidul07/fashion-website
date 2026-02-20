@@ -600,7 +600,7 @@
         -webkit-line-clamp: 2;
     }
     .banner .banner_big_slider .item .banner_bix_box {
-        height: calc(100vh - 62px);
+        height: 70vh;
     }
     .banner .banner_big_slider .item .banner_bix_box::after {
         display: none;
@@ -638,6 +638,11 @@
         padding: 2px 8px;
         font-size: 11px;
         border-radius: 0 0 6px 0;
+    }
+    .best_products .bottom .product_box .product_box_image .images:before,
+    .hand_picked .pro_video_box .product_box_image:after,
+    .sales .bottom .product_box .product_box_image .images:before {
+        padding-top: 140%;
     }
     .review_sales .padding .review_boxes .review_text p {
         margin-top: 10px !important;

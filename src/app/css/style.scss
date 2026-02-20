@@ -1266,6 +1266,9 @@ header  {
         border-radius: 4px;
         position: relative;
         display: block;
+        &:last-child {
+            margin-top: 15px;
+        }
         &::after  {
             content: "";
             display: block;
