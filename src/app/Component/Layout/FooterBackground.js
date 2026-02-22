@@ -17,7 +17,7 @@ export default function FooterBackground() {
         <section className="footer_background">
             <div className='footer_background_image'>
                 <Image 
-                    src={themeOptionsData?.footer_image2 || Footerbackground} 
+                    src={themeOptionsData?.footer_image1 || Footerbackground} 
                     alt="image" 
                     width={700} 
                     height={700} 

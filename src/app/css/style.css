@@ -1118,6 +1118,9 @@ header.inner_header .header_main .humbergers button svg {
   position: relative;
   display: block;
 }
+.ads_section .ads_image:last-child {
+  margin-top: 15px;
+}
 .ads_section .ads_image::after {
   content: "";
   display: block;
@@ -2056,7 +2059,6 @@ header.inner_header .header_main .humbergers button svg {
 }
 
 footer {
-  background-image: url(../assets/images/homepage/footer-background.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -2214,13 +2216,13 @@ footer .footer_top .link li a:hover {
   display: flex;
   align-items: center;
 }
+.footer_background .footer_bottom ul li:not(:last-child) {
+  padding-right: 10px;
+}
 .footer_background .footer_bottom ul li {
   font-size: 0.8rem;
   font-weight: 500;
   color: var(--fonttext);
-}
-.footer_background .footer_bottom ul li:not(:last-child) {
-  padding-right: 10px;
 }
 .footer_background .footer_bottom ul li a {
   font-size: 0.8rem;
@@ -2468,9 +2470,6 @@ footer .footer_top .link li a:hover {
   padding-top: 30px;
   position: relative;
 }
-.Sign_modal .Sign_modal_box .Sign_modal_background .Sign_modal_colour .modal_text .limited_text h4 {
-  position: relative;
-}
 .Sign_modal .Sign_modal_box .Sign_modal_background .Sign_modal_colour .modal_text .limited_text h4 span {
   font-size: 1rem;
   font-weight: 500;
@@ -2478,6 +2477,9 @@ footer .footer_top .link li a:hover {
   background: var(--white);
   padding: 0 20px;
   z-index: 1;
+  position: relative;
+}
+.Sign_modal .Sign_modal_box .Sign_modal_background .Sign_modal_colour .modal_text .limited_text h4 {
   position: relative;
 }
 .Sign_modal .Sign_modal_box .Sign_modal_background .Sign_modal_colour .modal_text .limited_text h4::after {
@@ -2727,15 +2729,15 @@ footer .footer_top .link li a:hover {
 .categories_details .easy_deliverys ul {
   display: flex;
 }
+.categories_details .easy_deliverys ul li:not(:last-child) {
+  border-right: 1px solid var(--border);
+}
 .categories_details .easy_deliverys ul li {
   text-align: center;
   padding: 0 10px;
   width: 33.33%;
   display: flex;
   flex-direction: column;
-}
-.categories_details .easy_deliverys ul li:not(:last-child) {
-  border-right: 1px solid var(--border);
 }
 .categories_details .easy_deliverys ul li img {
   width: 30px;
@@ -3007,9 +3009,6 @@ footer .footer_top .link li a:hover {
 }
 .categories_details .top .slider_details .slider_details_text .price_div h3 {
   margin-bottom: 0;
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--redfont);
 }
 .categories_details .top .slider_details .slider_details_text .price_div h3 span {
   font-size: 1rem;
@@ -3018,6 +3017,11 @@ footer .footer_top .link li a:hover {
   text-decoration: line-through;
   padding-right: 6px;
   display: inline;
+}
+.categories_details .top .slider_details .slider_details_text .price_div h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--redfont);
 }
 .categories_details .top .slider_details .slider_details_text .price_div h4 {
   margin-bottom: 0;
@@ -4381,6 +4385,9 @@ footer .footer_top .link li a:hover {
 .wishlist_panel.cart_panel_table .view_list .heading_table .table_head ul {
   display: flex;
 }
+.wishlist_panel.cart_panel_table .view_list .heading_table .table_head ul li:first-child {
+  width: 33%;
+}
 .wishlist_panel.cart_panel_table .view_list .heading_table .table_head ul li {
   width: 23%;
   background: #f1f5f9;
@@ -4392,9 +4399,6 @@ footer .footer_top .link li a:hover {
   border: none;
   border-radius: 0;
   margin-bottom: 0;
-}
-.wishlist_panel.cart_panel_table .view_list .heading_table .table_head ul li:first-child {
-  width: 33%;
 }
 .wishlist_panel.cart_panel_table .view_list .heading_table .table_head ul li:last-child {
   width: 10%;
@@ -4775,6 +4779,9 @@ footer .footer_top .link li a:hover {
 .policy_div .policy_box h3 span {
   padding-right: 10px;
 }
+.policy_div .policy_box ul li:not(:last-child) {
+  padding-bottom: 14px;
+}
 .policy_div .policy_box ul li {
   font-size: 0.9rem;
   font-weight: 500;
@@ -4782,9 +4789,6 @@ footer .footer_top .link li a:hover {
   padding-left: 40px;
   display: flex;
   gap: 14px;
-}
-.policy_div .policy_box ul li:not(:last-child) {
-  padding-bottom: 14px;
 }
 .policy_div .policy_box ul li span svg {
   fill: var(--fonttext);

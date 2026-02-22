@@ -1266,6 +1266,9 @@ header  {
         border-radius: 4px;
         position: relative;
         display: block;
+        &:last-child {
+            margin-top: 15px;
+        }
         &::after  {
             content: "";
             display: block;
@@ -1968,7 +1971,7 @@ header  {
 }
 
 footer  {
-    background-image: url(../assets/images/homepage/footer-background.png);
+    // background-image: url(../assets/images/homepage/footer-background.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
