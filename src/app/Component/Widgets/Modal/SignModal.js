@@ -16,6 +16,16 @@ export default function SignModal() {
     const [isModalOpen, setIsModalOpen] = useState(true);
     const [leadsBtnLoader, setLeadsBtnLoader] = useState(false);
 
+    const modalFeatures = themeOptionsData?.modal_features 
+        ? (() => {
+            try {
+                return JSON.parse(themeOptionsData.modal_features);
+            } catch {
+                return [];
+            }
+        })()
+        : [];
+
     const handleCloseModal = () => {
         setIsModalOpen(false);
     };
@@ -54,10 +64,9 @@ export default function SignModal() {
         } else if (!/^\+?[0-9\s\-()]*$/.test(values.phone)) {
             errors.phone = 'Invalid Phone no';
         } else {
-            // Remove non-numeric characters to check the length of the digits
             const contactNoDigits = values.phone.replace(/[^\d]/g, '');
             if (contactNoDigits.length < 10 || contactNoDigits.length > 15) {
-                errors.phone = 'Phone no must be between 10 and 15 digits'; // Fixed this line
+                errors.phone = 'Phone no must be between 10 and 15 digits';
             }
         }
 
@@ -89,7 +98,7 @@ export default function SignModal() {
                     }
                 })
                 .catch(function (error) {
-                    if(error.response.data.message){
+                    if(error.response?.data?.message){
                         toast.error(error.response.data.message || 'Network Error');
                     }else{
                         toast.error(error.message || 'Network Error');
@@ -109,51 +118,66 @@ export default function SignModal() {
                         <div className='Sign_modal_colour'>
                             <div className='col-12 col-md-7 modal_iamge'>
                                 <div>
-                                    <h3>Crafting Tomorrow's Heirlooms With Love Today </h3>
-                                    <h5>Our Heartfelt Guarantees</h5>
+                                    <h3>{themeOptionsData?.modal_title || "Crafting Tomorrow's Heirlooms With Love Today"}</h3>
+                                    <h5>{themeOptionsData?.modal_subtitle || "Our Heartfelt Guarantees"}</h5>
                                     <div className='modal_flex'>
-                                        <div className='modal_flex_box'>
-                                            <div className='modal_flex_background'>
-                                                <div className='icon'>
-                                                    <Image src={BagIcon} alt='icon' />
+                                        {modalFeatures.length > 0 ? (
+                                            modalFeatures.map((feature, index) => (
+                                                <div className='modal_flex_box' key={index}>
+                                                    <div className='modal_flex_background'>
+                                                        <div className='icon'>
+                                                            <img src={feature.icon} alt='icon' width={50} height={50} />
+                                                        </div>
+                                                        <h4>{feature.title}</h4>
+                                                        <p>{feature.description}</p>
+                                                    </div>
                                                 </div>
-                                                <h4>Your First Petal Gift</h4>
-                                                <p>
-                                                    Free Canvas Bag on your 1st Purchase – A little piece of us to carry your style!
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div className='modal_flex_box'>
-                                            <div className='modal_flex_background'>
-                                                <div className='icon'>
-                                                    <Image src={TShirt} alt='icon' />
+                                            ))
+                                        ) : (
+                                            <>
+                                                <div className='modal_flex_box'>
+                                                    <div className='modal_flex_background'>
+                                                        <div className='icon'>
+                                                            <Image src={BagIcon} alt='icon' />
+                                                        </div>
+                                                        <h4>Your First Petal Gift</h4>
+                                                        <p>
+                                                            Free Canvas Bag on your 1st Purchase – A little piece of us to carry your style!
+                                                        </p>
+                                                    </div>
                                                 </div>
-                                                <h4>Because Once Isn&apos;t Enough</h4>
-                                                <p>
-                                                    Free Customised T-Shirt on your 3rd Purchase.
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div className='modal_flex_box'>
-                                            <div className='modal_flex_background'>
-                                                <div className='icon'>
-                                                    <Image src={Delivery} alt='icon' />
+                                                <div className='modal_flex_box'>
+                                                    <div className='modal_flex_background'>
+                                                        <div className='icon'>
+                                                            <Image src={TShirt} alt='icon' />
+                                                        </div>
+                                                        <h4>Because Once Isn&apos;t Enough</h4>
+                                                        <p>
+                                                            Free Customised T-Shirt on your 3rd Purchase.
+                                                        </p>
+                                                    </div>
                                                 </div>
-                                                <h4>Delivered with Love Always Free</h4>
-                                                <p>
-                                                    Free Delivery Always – No minimum order required.
-                                                </p>
-                                            </div>
-                                        </div>
+                                                <div className='modal_flex_box'>
+                                                    <div className='modal_flex_background'>
+                                                        <div className='icon'>
+                                                            <Image src={Delivery} alt='icon' />
+                                                        </div>
+                                                        <h4>Delivered with Love Always Free</h4>
+                                                        <p>
+                                                            Free Delivery Always – No minimum order required.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </>
+                                        )}
                                     </div>
                                 </div>
                                 <p className='modalp'>
-                                    ** Shop fearlessly, wear timelessly. Your first petal awaits **
+                                    {themeOptionsData?.modal_below_text || "** Shop fearlessly, wear timelessly. Your first petal awaits **"}
                                 </p>
                             </div>
                             <div className='col-12 col-md-5 modal_text'>
                                 <div className='text_box'>
-                                    {/* <h3>Enjoy 10% off on your first order!</h3> */}
                                     <h5>Register with us</h5>
                                 </div>
                                 <div className='input_box'>

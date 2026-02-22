@@ -23,7 +23,7 @@ export default function FreeShipping() {
         <div className='free_shipping'>
             <div className='container'>
                 <div className='row row-cols-3 row-cols-md-5 justify-content-center'>
-                    {aboveFooterSection.map((afs, index) => (
+                    {aboveFooterSection?.map((afs, index) => (
                         <div className='col' key={index}>
                             <div className='box'>
                                 <div className='left'>
