@@ -1519,7 +1519,7 @@ header.inner_header .header_main .humbergers button svg {
 .review_sales .padding .review_boxes .review_image::after {
   content: "";
   display: block;
-  padding-top: 90%;
+  padding-top: 100%;
 }
 .review_sales .padding .review_boxes .review_image img {
   width: 100%;
@@ -1530,6 +1530,10 @@ header.inner_header .header_main .humbergers button svg {
   right: 0;
   bottom: 0;
   border-radius: 4px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top center;
+     object-position: top center;
 }
 .review_sales .padding .review_boxes .review_text {
   text-align: center;
@@ -2577,7 +2581,7 @@ footer .footer_top .link li a:hover {
 .categories_banner .cat_background .image_box::after {
   content: "";
   display: block;
-  padding-top: 42%;
+  padding-top: 46%;
 }
 .categories_banner .cat_background .image_box img {
   width: 100%;
@@ -2587,6 +2591,10 @@ footer .footer_top .link li a:hover {
   right: 0;
   top: 0;
   position: absolute;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top center;
+     object-position: top center;
 }
 .categories_banner .heading {
   padding-top: 20px;
@@ -2716,6 +2724,7 @@ footer .footer_top .link li a:hover {
   font-weight: 550;
   color: var(--fonttext);
   margin-bottom: 0;
+  white-space: nowrap;
 }
 .categories_details .craft_option ul li .craft_right p {
   padding-top: 4px;

@@ -1428,7 +1428,7 @@ header  {
                 &::after {
                     content: "";
                     display: block;
-                    padding-top: 90%;
+                    padding-top: 100%;
                 }
                 img {
                     width: 100%;
@@ -1439,6 +1439,8 @@ header  {
                     right: 0;
                     bottom: 0;
                     border-radius: 4px;
+                    object-fit: cover;
+                    object-position: top center;
                 }
             }
             .review_text {
@@ -2547,7 +2549,7 @@ footer  {
             &::after {
                 content: "";
                 display: block;
-                padding-top: 42%;
+                padding-top: 46%;
             }
 
             img {
@@ -2558,6 +2560,8 @@ footer  {
                 right: 0;
                 top: 0;
                 position: absolute;
+                object-fit: cover;
+                object-position: top center;
             }
         }
     }
@@ -2696,6 +2700,7 @@ footer  {
                         font-weight: 550;
                         color: var(--fonttext);
                         margin-bottom: 0;
+                        white-space: nowrap;
                     }
                     p {
                         padding-top: 4px;
