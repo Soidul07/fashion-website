@@ -3120,7 +3120,7 @@ footer  {
                     right: 0;
                     bottom: 0;
                     width: 100%;
-                    padding: 10px 20px;
+                    padding: 6px 20px;
                     box-shadow: 0px 15px 22px 14px rgb(0 0 0 / 20%);
                     z-index: 97;
                     transition: all ease-in-out .3s;
@@ -3129,8 +3129,8 @@ footer  {
                     .active_cart_images  {
                         display: flex;
                         .active_image  {
-                            width: 90px;
-                            height: 90px;
+                            width: 56px;
+                            height: 56px;
                             img  {
                                 width: 100%;
                                 height: 100%;
@@ -3140,7 +3140,7 @@ footer  {
                         }
                         .active_text  {
                             padding-left: 16px;
-                            padding-top: 20px;
+                            padding-top: 0px;
                             h2  {
                                 font-size: 1.0rem;
                             }
@@ -3163,7 +3163,7 @@ footer  {
                         .addcart_wishlist  {
                             .add_cart_btn {
                                 button {
-                                    padding: 14px 26px;
+                                    padding: 9.8px 26px;
                                     white-space: nowrap;
                                 }
                                 a {

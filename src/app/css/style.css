@@ -3131,7 +3131,7 @@ footer .footer_top .link li a:hover {
   right: 0;
   bottom: 0;
   width: 100%;
-  padding: 10px 20px;
+  padding: 6px 20px;
   box-shadow: 0px 15px 22px 14px rgba(0, 0, 0, 0.2);
   z-index: 97;
   transition: all ease-in-out 0.3s;
@@ -3142,8 +3142,8 @@ footer .footer_top .link li a:hover {
   display: flex;
 }
 .categories_details .top .slider_details .slider_cart.slider_active_cart .active_cart_images .active_image {
-  width: 90px;
-  height: 90px;
+  width: 56px;
+  height: 56px;
 }
 .categories_details .top .slider_details .slider_cart.slider_active_cart .active_cart_images .active_image img {
   width: 100%;
@@ -3155,7 +3155,7 @@ footer .footer_top .link li a:hover {
 }
 .categories_details .top .slider_details .slider_cart.slider_active_cart .active_cart_images .active_text {
   padding-left: 16px;
-  padding-top: 20px;
+  padding-top: 0px;
 }
 .categories_details .top .slider_details .slider_cart.slider_active_cart .active_cart_images .active_text h2 {
   font-size: 1rem;
@@ -3176,7 +3176,7 @@ footer .footer_top .link li a:hover {
   width: auto;
 }
 .categories_details .top .slider_details .slider_cart.slider_active_cart .active_cart_btn .addcart_wishlist .add_cart_btn button {
-  padding: 14px 26px;
+  padding: 9.8px 26px;
   white-space: nowrap;
 }
 .categories_details .top .slider_details .slider_cart.slider_active_cart .active_cart_btn .addcart_wishlist .add_cart_btn a {
