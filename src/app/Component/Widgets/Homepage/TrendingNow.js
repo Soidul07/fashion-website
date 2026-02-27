@@ -69,8 +69,8 @@ export default function TrendingNow({getSaleData}) {
                                     <div className='item'  key={product.id}>
                                         <Link href={`/products/${product.slug}`} className='pro_video_box'>
                                             <div className='product_box_image'>
-                                                <Image src={product.product_image || BlankImage} alt='image' width={500} height={500} />
-                                                
+                                                <Image className='productOne' src={product.product_image || BlankImage} alt='image' width={500} height={500} />
+                                                <Image className='productTwo' src={product.product_image2 || BlankImage} alt='image' width={500} height={500} />
                                             </div>
                                         </Link>
                                     </div>

@@ -1967,6 +1967,18 @@ header.inner_header .header_main .humbergers button svg {
 .hand_picked .pro_video_box .product_box_image {
   position: relative;
 }
+.hand_picked .pro_video_box .product_box_image .productTwo {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.hand_picked .pro_video_box .product_box_image:hover .productOne {
+  opacity: 0;
+}
+.hand_picked .pro_video_box .product_box_image:hover .productTwo {
+  opacity: 1;
+}
 .hand_picked .pro_video_box .product_box_image::after {
   content: "";
   display: block;
@@ -1986,6 +1998,7 @@ header.inner_header .header_main .humbergers button svg {
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
+  transition: all ease-in-out 0.55s;
 }
 .hand_picked .pro_video_box .product_box_text {
   padding-top: 16px;

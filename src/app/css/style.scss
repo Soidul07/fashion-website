@@ -1889,6 +1889,18 @@ header  {
         padding: 0 10px;
         .product_box_image {
             position: relative;
+            .productTwo {
+                opacity: 0;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            &:hover .productOne {
+                opacity: 0;
+            }
+            &:hover .productTwo {
+                opacity: 1;
+            }
             &::after {
                 content: "";
                 display: block;
@@ -1906,6 +1918,7 @@ header  {
                 border-radius: 4px;
                 object-fit: cover;
                 object-position: center;
+                transition: all ease-in-out .55s;
             }
         }
         .product_box_text {
