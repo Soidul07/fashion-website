@@ -1016,6 +1016,14 @@ header.inner_header .header_main .humbergers button svg {
   margin: 0;
   line-height: 1.2;
 }
+.best_products .bottom .product_box .product_box_text h3 span {
+  padding-left: 6px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  color: var(--fontsmall);
+  text-decoration: line-through;
+}
 .best_products .bottom .product_box .product_box_text p {
   padding-top: 6px;
   font-size: 0.9rem;
@@ -1376,6 +1384,14 @@ header.inner_header .header_main .humbergers button svg {
   color: var(--darkRed);
   margin: 0;
   line-height: 1.2;
+}
+.sales .bottom .product_box .product_box_text h3 span {
+  padding-left: 6px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  color: var(--fontsmall);
+  text-decoration: line-through;
 }
 .sales .bottom .product_box .product_box_text p {
   padding-top: 6px;

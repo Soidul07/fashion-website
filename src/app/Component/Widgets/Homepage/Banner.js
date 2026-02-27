@@ -10,7 +10,7 @@ export default function Banner({ getSeasonCategories,getlatestCategoriesBanners,
         speed: 2000,
         slidesToShow:1, 
         slidesToScroll:1,
-        autoplay: true,
+        autoplay: false,
         autoplaySpeed: 2000,
         dots: true,
         arrows: false,
@@ -38,7 +38,7 @@ export default function Banner({ getSeasonCategories,getlatestCategoriesBanners,
                             <div className='item' key={index}>
                                 <Link href={`/categories/${category.slug}`} className='banner_bix_box'>
                                     <Image src={category.cat_banner_image ? category.cat_banner_image : '/default-product.jpg'} className='banner_desktop' alt='banner image' width={600} height={600} />
-                                    <Image src={category.cat_banner_image ? category.cat_banner_image : '/default-product.jpg'} className='banner_mobile' alt='banner image' width={600} height={600} />
+                                    <Image src={category.image ? category.image : '/default-product.jpg'} className='banner_mobile' alt='banner image' width={600} height={600} />
                                 </Link>
                             </div>
                         ))}

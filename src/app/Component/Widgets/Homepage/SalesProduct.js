@@ -224,7 +224,14 @@ export default function SalesProduct({getSaleData}) {
                                                                 alt={product.title}
                                                                 width={225}
                                                                 height={300}
-                                                                className="img-fluid"
+                                                                className="img-fluid productOne"
+                                                            />
+                                                            <Image
+                                                                src={product.product_image2 || BlankImage}
+                                                                alt={product.title}
+                                                                width={225}
+                                                                height={300}
+                                                                className="img-fluid productTwo"
                                                             />
                                                         </div>
                                                     </Link>
