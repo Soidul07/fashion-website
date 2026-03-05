@@ -422,7 +422,9 @@
     .Sign_modal {
         padding: 4px 4px 0 4px;
     }
-    
+    .search_panel .search_width .close_btn {
+        display: none;
+    }
 
 
 

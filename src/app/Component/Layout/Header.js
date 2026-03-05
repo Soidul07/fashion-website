@@ -23,6 +23,9 @@ import { IoClose } from "react-icons/io5";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { FaShare } from "react-icons/fa";
 import { usePathname } from "next/navigation";
+import { FaArrowUpLong } from "react-icons/fa6";
+
+
 
 const currentDate = new Date();
 
@@ -361,6 +364,9 @@ export default function Header() {
                 </div>
               </div>
               <div className='search_cart_option'>
+                <button className='notification_button' onClick={handleClick1}>
+                  <IoSearchOutline />
+                </button>
                 <Link href='/wishlist' className='hearts_button'>
                   <FaRegHeart />
                   <span>
@@ -370,9 +376,6 @@ export default function Header() {
                 <Link href='/my-account' className='account_button'>
                   <IoPersonCircleOutline />
                 </Link>
-                {/* <button className='notification_button' onClick={handleClick1}>
-                  <IoSearchOutline />
-                </button> */}
                 <Link href='/cart' className='cart_button'>
                   <MdOutlineShoppingBag />
                   <span>
@@ -400,12 +403,12 @@ export default function Header() {
                     <span>Wishlist</span>
                 </Link>
             </li>
-            {/* <li>
+            <li>
                 <button onClick={handleClick1}>
                     <IoSearchOutline />
                     <span>Search</span>
                 </button>
-            </li> */}
+            </li>
             <li>
               <Link href='/cart' className='cart_button'>
                 <MdOutlineShoppingBag />
@@ -444,33 +447,144 @@ export default function Header() {
             </button>
           </div>
           <div className='quick_links_box'>
-            <h5>Quick Links :</h5>
+            <h5>Trending searches :</h5>
             <ul>
               <li>
                 <Link href="#">
-                    <div className='quick_image'>
-                      <Image src={ColursOne} width="100" height="100" alt='quick-image' />
-                    </div>
-                    <span>Katan</span>
+                  <span>Katan</span>
+                  <FaArrowUpLong />
                 </Link>
               </li>
               <li>
                 <Link href="#">
-                    <div className='quick_image'>
-                      <Image src={ColursOneOne} width="100" height="100" alt='quick-image' />
-                    </div>
-                    <span>Silk</span>
+                  <span>Katan</span>
+                  <FaArrowUpLong />
                 </Link>
               </li>
               <li>
                 <Link href="#">
-                    <div className='quick_image'>
-                      <Image src={ColursTwo} width="100" height="100" alt='quick-image' />
-                    </div>
-                    <span>Tat</span>
+                  <span>Katan</span>
+                  <FaArrowUpLong />
+                </Link>
+              </li>
+              <li>
+                <Link href="#">
+                  <span>Katan</span>
+                  <FaArrowUpLong />
+                </Link>
+              </li>
+              <li>
+                <Link href="#">
+                  <span>Katan</span>
+                  <FaArrowUpLong />
+                </Link>
+              </li>
+              <li>
+                <Link href="#">
+                  <span>Katan</span>
+                  <FaArrowUpLong />
+                </Link>
+              </li>
+              <li>
+                <Link href="#">
+                  <span>Katan</span>
+                  <FaArrowUpLong />
+                </Link>
+              </li>
+              <li>
+                <Link href="#">
+                  <span>Katan</span>
+                  <FaArrowUpLong />
                 </Link>
               </li>
             </ul>
+          </div>
+          {/* search product box here */}
+          <div className='quick_links_box best_products'>
+            <h5>Recommended :</h5>
+              <div className='row bottom'>
+                {/* <div key={product.id} className="col-4 padding">
+                  <div className="product_box">
+                    <div className='pro_box_po'>
+                      <Link href={`/products/${product.slug}`} className="product_box_image">
+                        <div className="images">
+                          <Image
+                            src={product.product_image}
+                            alt={product.title}
+                            width={225}
+                            height={300}
+                            className="productOne"
+                          />
+                          <Image
+                            src={product.product_image2}
+                            alt={product.title}
+                            width={675}
+                            height={900}
+                            className="productTwo"
+                          />
+                        </div>
+                        
+                      </Link>
+                      {product.stock > 0 ? (
+                        <div className="cart_btn">
+                          <button
+                            onClick={() => handleAddToCart(product)}
+                            disabled={isLoadingCart || quantity <= 0}
+                          >
+                            {isLoadingCart ? 
+                              (
+                                  "Adding.."
+                              ) : (
+                                <>
+                                    <MdOutlineShoppingBag />
+                                </>
+                              )  
+                            }
+                          </button>
+                        </div>
+                      ) : (
+                        <div className="cart_btn">
+                          <button disabled>Out of stock</button>
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="product_box_text">
+                      <h2>{product.title}</h2>
+                        <div className='save_box'>
+                  <h3>
+                    {product.sale_price
+                      ? "₹"+product.sale_price 
+                      : "₹"+product.regular_price}
+                    {" "}
+                    {product.sale_price && (
+                      <span>
+                        {"₹"+product.regular_price}
+                      </span>
+                    )}
+                  </h3>
+                  {product.sale_price && parseFloat(product.regular_price) > parseFloat(product.sale_price) && (
+                    <p className='save_number'>
+                      Save ₹{(parseFloat(product.regular_price) - parseFloat(product.sale_price)).toFixed(2)}
+                    </p>
+                  )}
+                </div>
+                    </div>
+                    <div className="like">
+                      <button onClick={() => handleWishlist(product)}>
+                        <FaHeart />
+                      </button>
+                      <button onClick={() => {
+                          const url = `${window.location.origin}/products/${product.slug}`;
+                          const text = `Check out ${product.title} - ₹${product.sale_price || product.regular_price}`;
+                          window.open(`https://wa.me/?text=${encodeURIComponent(text + ' ' + url)}`, '_blank');
+                      }}>
+                          <FaShare />
+                      </button>
+                    </div>
+                  </div>
+                </div> */}
+              </div>
           </div>
         </div>
       </div>
