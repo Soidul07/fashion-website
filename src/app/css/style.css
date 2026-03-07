@@ -4650,8 +4650,8 @@ footer .footer_top .link li a:hover {
   left: 0;
   right: 0;
   background: var(--white);
-  padding: 20px;
-  height: 59%;
+  padding: 20px 10px;
+  height: 86vh;
   width: 100%;
   z-index: 99;
   transition: all ease-in-out 0.55s;
@@ -4659,30 +4659,36 @@ footer .footer_top .link li a:hover {
   visibility: hidden;
   box-shadow: 0 5px 10px rgba(100, 100, 100, 0.2);
 }
+.search_panel .bottom {
+  height: 316px;
+  overflow-y: auto;
+  background: #fff8ec;
+  border-radius: 3px;
+  padding: 4px;
+}
 .search_panel .search_width {
   max-width: 650px;
   width: 100%;
   margin: auto;
 }
 .search_panel .search_width .close_btn {
-  padding-top: 40px;
-  display: flex;
-  justify-content: center;
+  position: absolute;
+  top: 4px;
+  right: 4px;
 }
 .search_panel .search_width .close_btn button {
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
   border-radius: 50px;
-  background: var(--border);
+  background: var(--red);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .search_panel .search_width .close_btn button svg {
-  fill: var(--bannertext);
+  fill: var(--white);
 }
 .search_panel .search_width .search_box {
-  margin-top: 20px;
   position: relative;
 }
 .search_panel .search_width .search_box input {
@@ -4691,17 +4697,17 @@ footer .footer_top .link li a:hover {
   border-radius: 5px;
   background: var(--white);
   font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--fonttext);
+  font-weight: 400;
+  color: var(--bannerparagraphy);
   outline: none;
   border: none;
   padding: 0 15px 0 15px;
-  border: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
   position: relative;
 }
 .search_panel .search_width .search_box button {
   position: absolute;
-  top: 10px;
+  top: 7px;
   right: 10px;
 }
 .search_panel .search_width .search_box button svg {
@@ -4709,49 +4715,55 @@ footer .footer_top .link li a:hover {
 }
 .search_panel .search_width .quick_links_box {
   padding-top: 20px;
+  overflow: hidden;
+}
+.search_panel .search_width .quick_links_box:hover ul {
+  animation-play-state: paused;
 }
 .search_panel .search_width .quick_links_box h5 {
   font-size: 1rem;
   font-weight: 500;
   color: var(--fonttext);
-  padding-bottom: 10px;
 }
 .search_panel .search_width .quick_links_box ul {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  width: 100%;
+  animation: scrollLeft 10s linear infinite;
 }
-.search_panel .search_width .quick_links_box ul li {
-  padding-bottom: 10px;
-  width: 33.33%;
+.search_panel .search_width .quick_links_box ul li:not(:last-child) {
   padding-right: 8px;
 }
 .search_panel .search_width .quick_links_box ul li a {
   width: 100%;
-  background: #f1f1f1;
   display: flex;
   align-items: center;
-  border-radius: 2px;
-  overflow: hidden;
-}
-.search_panel .search_width .quick_links_box ul li a .quick_image {
-  width: 40px;
-  height: 40px;
-}
-.search_panel .search_width .quick_links_box ul li a .quick_image img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: top;
-     object-position: top;
+  border-radius: 50px;
+  white-space: nowrap;
+  padding: 4px 16px;
+  gap: 8px;
+  border: 1px solid var(--border);
+  transition: all ease-in-out 0.3s;
 }
 .search_panel .search_width .quick_links_box ul li a span {
   font-size: 0.9rem;
   font-weight: 500;
   color: var(--fonttext);
-  padding-left: 10px;
+  transition: all ease-in-out 0.3s;
+}
+.search_panel .search_width .quick_links_box ul li a svg {
+  width: 16px;
+  height: 16px;
+  color: var(--red);
+  transform: rotate(45deg);
+  transition: all ease-in-out 0.3s;
+}
+.search_panel .search_width .quick_links_box ul li a:hover {
+  background: var(--darkRed);
+  border: 1px solid var(--darkRed);
+}
+.search_panel .search_width .quick_links_box ul li a:hover span, .search_panel .search_width .quick_links_box ul li a:hover svg {
+  color: var(--white);
 }
 .search_panel.active {
   opacity: 1;
@@ -4759,6 +4771,14 @@ footer .footer_top .link li a:hover {
   top: 0;
 }
 
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
 .search_panel_background {
   position: fixed;
   top: 0;

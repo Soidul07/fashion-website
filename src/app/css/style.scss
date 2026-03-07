@@ -4731,37 +4731,43 @@ footer  {
     left: 0;
     right: 0;
     background: var(--white);
-    padding: 20px;
-    height: 59%;
+    padding: 20px 10px;
+    height: 86vh;
     width: 100%;
     z-index: 99;
     transition: all ease-in-out .55s;
     opacity: 0;
     visibility: hidden;
     box-shadow: 0 5px 10px #64646433;
+    .bottom {
+        height: 316px;
+        overflow-y: auto;
+        background: #fff8ec;
+        border-radius: 3px;
+        padding: 4px;
+    }
     .search_width  {
         max-width: 650px;
         width: 100%;
         margin: auto;
         .close_btn  {
-            padding-top: 40px;
-            display: flex;
-            justify-content: center;
+            position: absolute;
+            top: 4px;
+            right: 4px;
             button  {
-                width: 36px;
-                height: 36px;
+                width: 30px;
+                height: 30px;
                 border-radius: 50px;
-                background: var(--border);
+                background: var(--red);
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 svg  {
-                    fill: var(--bannertext);
+                    fill: var(--white);
                 }
             }
         }
         .search_box  {
-            margin-top: 20px;
             position: relative;
             input  {
                 width: 100%;
@@ -4769,17 +4775,17 @@ footer  {
                 border-radius: 5px;
                 background: var(--white);
                 font-size: 0.9rem;
-                font-weight: 500;
-                color: var(--fonttext);
+                font-weight: 400;
+                color: var(--bannerparagraphy);
                 outline: none;
                 border: none;
                 padding: 0 15px 0 15px;
-                border: 1px solid var(--border);
+                border-bottom: 1px solid var(--border);
                 position: relative;
             }
             button  {
                 position: absolute;
-                top: 10px;
+                top: 7px;
                 right: 10px;
                 svg  {
                     fill: var(--bannerparagraphy);
@@ -4788,43 +4794,53 @@ footer  {
         }
         .quick_links_box  {
             padding-top: 20px;
+            overflow: hidden;
+            &:hover ul {
+                animation-play-state: paused;
+            }
             h5  {
                 font-size: 1.0rem;
                 font-weight: 500;
                 color: var(--fonttext);
-                padding-bottom: 10px;
             }
             ul  {
                 display: flex;
-                justify-content: space-between;
                 align-items: center;
-                flex-wrap: wrap;
+                width: 100%;
+                animation: scrollLeft 10s linear infinite;
                 li  {
-                    padding-bottom: 10px;
-                    width: 33.33%;
-                    padding-right: 8px;
+                    &:not(:last-child) {
+                        padding-right: 8px;
+                    }
                     a  {
                         width: 100%;
-                        background: #f1f1f1;
                         display: flex;
                         align-items: center;
-                        border-radius: 2px;
-                        overflow: hidden;
-                        .quick_image  {
-                            width: 40px;
-                            height: 40px;
-                            img  {
-                                width: 100%;
-                                height: 100%;
-                                object-fit: cover;
-                                object-position: top;
-                            }
-                        }
+                        border-radius: 50px;
+                        white-space: nowrap;
+                        padding: 4px 16px;
+                        gap: 8px;
+                        border: 1px solid var(--border);
+                        transition: all ease-in-out .3s;
                         span  {
                             font-size: 0.9rem;
                             font-weight: 500;
                             color: var(--fonttext);
-                            padding-left: 10px;
+                            transition: all ease-in-out .3s;
+                        }
+                        svg {
+                            width: 16px;
+                            height: 16px;
+                            color: var(--red);
+                            transform: rotate(45deg);
+                            transition: all ease-in-out .3s;
+                        }
+                        &:hover {
+                            background: var(--darkRed);
+                            border: 1px solid var(--darkRed);
+                            span,svg {
+                                color: var(--white);
+                            }
                         }
                     }
                 }
@@ -4836,6 +4852,15 @@ footer  {
         visibility: visible;
         top: 0;
     }
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .search_panel_background  {
