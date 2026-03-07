@@ -74,23 +74,27 @@ export default function AllProductsPage() {
       return pages;
     }
 
+    // Always show first 2 pages
     pages.push(1, 2);
 
+    // Show ellipsis if current page is far from start
     if (current > 4) {
       pages.push('...');
     }
 
-    const start = Math.max(3, current - 1);
-    const end = Math.min(last - 2, current + 1);
-
-    for (let i = start; i <= end; i++) {
-      if (!pages.includes(i)) pages.push(i);
+    // Show pages around current page
+    for (let i = Math.max(3, current - 1); i <= Math.min(last - 2, current + 1); i++) {
+      if (i > 2 && i < last - 1) {
+        pages.push(i);
+      }
     }
 
+    // Show ellipsis if current page is far from end
     if (current < last - 3) {
       pages.push('...');
     }
 
+    // Always show last 2 pages
     pages.push(last - 1, last);
 
     return pages;
