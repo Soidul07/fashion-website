@@ -69,17 +69,30 @@ export default function AllProductsPage() {
     const current = currentPage;
     const last = pagination.last_page;
 
-    if (last <= 5) {
+    if (last <= 7) {
       for (let i = 1; i <= last; i++) pages.push(i);
-    } else {
-      if (current <= 2) {
-        pages.push(1, 2, '...', last - 1, last);
-      } else if (current >= last - 1) {
-        pages.push(1, 2, '...', last - 1, last);
-      } else {
-        pages.push(1, 2, '...', last - 1, last);
-      }
+      return pages;
     }
+
+    pages.push(1, 2);
+
+    if (current > 4) {
+      pages.push('...');
+    }
+
+    const start = Math.max(3, current - 1);
+    const end = Math.min(last - 2, current + 1);
+
+    for (let i = start; i <= end; i++) {
+      if (!pages.includes(i)) pages.push(i);
+    }
+
+    if (current < last - 3) {
+      pages.push('...');
+    }
+
+    pages.push(last - 1, last);
+
     return pages;
   };
 
