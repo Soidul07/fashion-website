@@ -63,11 +63,22 @@ export default function AllProductsPage() {
     }
   };
 
-  // Function to generate page numbers dynamically
+  // Function to generate page numbers dynamically with ellipsis
   const generatePageNumbers = () => {
     const pages = [];
-    for (let i = 1; i <= pagination.last_page; i++) {
-      pages.push(i);
+    const current = currentPage;
+    const last = pagination.last_page;
+
+    if (last <= 7) {
+      for (let i = 1; i <= last; i++) pages.push(i);
+    } else {
+      if (current <= 3) {
+        pages.push(1, 2, 3, '...', last - 1, last);
+      } else if (current >= last - 2) {
+        pages.push(1, 2, '...', last - 2, last - 1, last);
+      } else {
+        pages.push(1, 2, '...', current - 1, current, current + 1, '...', last - 1, last);
+      }
     }
     return pages;
   };
@@ -224,19 +235,19 @@ export default function AllProductsPage() {
                 </button>
 
                 {/* Page Number Buttons */}
-                {generatePageNumbers().map((pageNumber) => (
-                  <button
-                    key={pageNumber}
-                    onClick={() => handlePageChange(pageNumber)}
-                    className={` ${
-                      pageNumber === currentPage
-                        ? ""
-                        : ""
-                    } `}
-                  >
-                    {pageNumber}
-                  </button>
-                ))}
+                {generatePageNumbers().map((pageNumber, index) => 
+                  pageNumber === '...' ? (
+                    <span key={`ellipsis-${index}`} className="ellipsis">...</span>
+                  ) : (
+                    <button
+                      key={pageNumber}
+                      onClick={() => handlePageChange(pageNumber)}
+                      className={pageNumber === currentPage ? "active" : ""}
+                    >
+                      {pageNumber}
+                    </button>
+                  )
+                )}
 
                 {/* Next Button */}
                 <button
