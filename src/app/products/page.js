@@ -72,7 +72,7 @@ export default function AllProductsPage() {
     if (!last || last <= 1) return pages;
 
     // Show all pages if total pages <= 7
-    if (last <= 3) {
+    if (last <= 2) {
       for (let i = 1; i <= last; i++) {
         pages.push(i);
       }
@@ -84,7 +84,7 @@ export default function AllProductsPage() {
     if (last > 1) pages.push(2);
 
     // Determine middle section
-    if (current <= 3) {
+    if (current <= 2) {
       // Near beginning: 1 2 3 ... last-1 last
       if (last > 2) pages.push(3);
       if (last > 4) pages.push('...');
