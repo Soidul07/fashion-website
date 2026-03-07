@@ -74,28 +74,19 @@ export default function AllProductsPage() {
       return pages;
     }
 
-    // Always show first 2 pages
-    pages.push(1, 2);
+    // Always add first page
+    pages.push(1);
 
-    // Show ellipsis if current page is far from start
-    if (current > 4) {
-      pages.push('...');
+    if (current <= 3) {
+      // Near start: 1 2 3 ... last-1 last
+      pages.push(2, 3, '...', last - 1, last);
+    } else if (current >= last - 2) {
+      // Near end: 1 2 ... last-2 last-1 last
+      pages.push(2, '...', last - 2, last - 1, last);
+    } else {
+      // Middle: 1 2 ... current ... last-1 last
+      pages.push(2, '...', current, '...', last - 1, last);
     }
-
-    // Show pages around current page
-    for (let i = Math.max(3, current - 1); i <= Math.min(last - 2, current + 1); i++) {
-      if (i > 2 && i < last - 1) {
-        pages.push(i);
-      }
-    }
-
-    // Show ellipsis if current page is far from end
-    if (current < last - 3) {
-      pages.push('...');
-    }
-
-    // Always show last 2 pages
-    pages.push(last - 1, last);
 
     return pages;
   };
