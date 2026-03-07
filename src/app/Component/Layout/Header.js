@@ -33,6 +33,9 @@ export default function Header() {
   const { themeOptionsData, categoryMenus, addToCart, cartItems, wishlistItems, addToWishlist } = useContext(MenuThemeContext);
   const [isLoadingCart, setisLoadingCart] = useState(false);
   const [quantity, setQuantity] = useState(1);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+  const [isSearching, setIsSearching] = useState(false);
 
   // header sticky
 
@@ -128,6 +131,28 @@ export default function Header() {
   const handleWishlist = (product) => {
       addToWishlist(product)
           .catch(err => console.error("Error adding to wishlist:", err));
+  };
+
+  const handleSearch = async (query) => {
+    setSearchQuery(query);
+    if (query.trim().length > 0) {
+      setIsSearching(true);
+      try {
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/search-products`, {
+          params: { query }
+        });
+        if (response.data.status === 'success') {
+          setSearchResults(response.data.products);
+        }
+      } catch (error) {
+        console.error('Search error:', error);
+      } finally {
+        setIsSearching(false);
+      }
+    } else {
+      setSearchResults([]);
+      setIsSearching(false);
+    }
   };
 
   var slidertext = {
@@ -441,7 +466,13 @@ export default function Header() {
             </button>
           </div>
           <div className='search_box'>
-            <input type='text' placeholder='Search for products..' />
+            <input 
+              type='text' 
+              placeholder='Search for products..' 
+              value={searchQuery}
+              onKeyUp={(e) => handleSearch(e.target.value)}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
             <button type='submit' >
               <IoSearchOutline />
             </button>
@@ -449,62 +480,26 @@ export default function Header() {
           <div className='quick_links_box'>
             <h5>Trending searches :</h5>
             <ul>
-              <li>
-                <Link href="#">
-                  <span>Katan</span>
-                  <FaArrowUpLong />
-                </Link>
-              </li>
-              <li>
-                <Link href="#">
-                  <span>Katan</span>
-                  <FaArrowUpLong />
-                </Link>
-              </li>
-              <li>
-                <Link href="#">
-                  <span>Katan</span>
-                  <FaArrowUpLong />
-                </Link>
-              </li>
-              <li>
-                <Link href="#">
-                  <span>Katan</span>
-                  <FaArrowUpLong />
-                </Link>
-              </li>
-              <li>
-                <Link href="#">
-                  <span>Katan</span>
-                  <FaArrowUpLong />
-                </Link>
-              </li>
-              <li>
-                <Link href="#">
-                  <span>Katan</span>
-                  <FaArrowUpLong />
-                </Link>
-              </li>
-              <li>
-                <Link href="#">
-                  <span>Katan</span>
-                  <FaArrowUpLong />
-                </Link>
-              </li>
-              <li>
-                <Link href="#">
-                  <span>Katan</span>
-                  <FaArrowUpLong />
-                </Link>
-              </li>
+              {categoryMenus.map((category) => (
+                <li key={category.slug}>
+                  <Link href={`/categories/${category.slug}`}>
+                    <span>{category.name}</span>
+                    <FaArrowUpLong />
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
           {/* search product box here */}
           <div className='quick_links_box best_products'>
-            <h5>Recommended :</h5>
+            <h5>{searchQuery ? 'Search Results:' : 'Recommended:'}</h5>
               <div className='row bottom'>
-                {/* <div key={product.id} className="col-4 padding">
-                  <div className="product_box">
+                {isSearching ? (
+                  <p>Loading...</p>
+                ) : (searchQuery ? searchResults : []).length > 0 ? (
+                  (searchQuery ? searchResults : []).map((product) => (
+                    <div key={product.id} className="col-4 padding">
+                      <div className="product_box">
                     <div className='pro_box_po'>
                       <Link href={`/products/${product.slug}`} className="product_box_image">
                         <div className="images">
@@ -582,8 +577,12 @@ export default function Header() {
                           <FaShare />
                       </button>
                     </div>
-                  </div>
-                </div> */}
+                      </div>
+                    </div>
+                  ))
+                ) : searchQuery ? (
+                  <p>No products found</p>
+                ) : null}
               </div>
           </div>
         </div>
