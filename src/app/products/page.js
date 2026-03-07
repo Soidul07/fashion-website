@@ -69,24 +69,39 @@ export default function AllProductsPage() {
     const current = currentPage;
     const last = pagination.last_page;
 
+    if (!last || last <= 1) return pages;
+
+    // Show all pages if total pages <= 7
     if (last <= 7) {
-      for (let i = 1; i <= last; i++) pages.push(i);
+      for (let i = 1; i <= last; i++) {
+        pages.push(i);
+      }
       return pages;
     }
 
-    // Always add first page
+    // Always show first 2 pages
     pages.push(1);
+    if (last > 1) pages.push(2);
 
+    // Determine middle section
     if (current <= 3) {
-      // Near start: 1 2 3 ... last-1 last
-      pages.push(2, 3, '...', last - 1, last);
+      // Near beginning: 1 2 3 ... last-1 last
+      if (last > 2) pages.push(3);
+      if (last > 4) pages.push('...');
     } else if (current >= last - 2) {
       // Near end: 1 2 ... last-2 last-1 last
-      pages.push(2, '...', last - 2, last - 1, last);
+      if (last > 4) pages.push('...');
+      if (last > 2) pages.push(last - 2);
     } else {
-      // Middle: 1 2 ... current ... last-1 last
-      pages.push(2, '...', current, '...', last - 1, last);
+      // In middle: 1 2 ... current ... last-1 last
+      pages.push('...');
+      pages.push(current);
+      pages.push('...');
     }
+
+    // Always show last 2 pages
+    if (last > 2) pages.push(last - 1);
+    pages.push(last);
 
     return pages;
   };
