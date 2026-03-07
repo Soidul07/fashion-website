@@ -72,7 +72,7 @@ export default function AllProductsPage() {
     if (!last || last <= 1) return pages;
 
     // Show all pages if total pages <= 7
-    if (last <= 4) {
+    if (last <= 3) {
       for (let i = 1; i <= last; i++) {
         pages.push(i);
       }
