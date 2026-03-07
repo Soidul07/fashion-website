@@ -69,15 +69,15 @@ export default function AllProductsPage() {
     const current = currentPage;
     const last = pagination.last_page;
 
-    if (last <= 7) {
+    if (last <= 5) {
       for (let i = 1; i <= last; i++) pages.push(i);
     } else {
-      if (current <= 3) {
-        pages.push(1, 2, 3, '...', last - 1, last);
-      } else if (current >= last - 2) {
-        pages.push(1, 2, '...', last - 2, last - 1, last);
+      if (current <= 2) {
+        pages.push(1, 2, '...', last - 1, last);
+      } else if (current >= last - 1) {
+        pages.push(1, 2, '...', last - 1, last);
       } else {
-        pages.push(1, 2, '...', current - 1, current, current + 1, '...', last - 1, last);
+        pages.push(1, 2, '...', last - 1, last);
       }
     }
     return pages;
