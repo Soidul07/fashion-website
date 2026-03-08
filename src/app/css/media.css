@@ -425,6 +425,9 @@
     .search_panel .search_width .close_btn {
         display: none;
     }
+    header {
+        padding-top: 0;
+    }
 
 
 
@@ -497,6 +500,14 @@
     .footer_background .text_position h2 {
         font-size: 4rem;
         line-height: 58px;
+    }
+
+    .search_panel {
+        height: calc(100vh - 62px);
+        padding: 10px 10px;
+    }
+    .search_panel .bottom {
+        height: 390px;
     }
 }
 

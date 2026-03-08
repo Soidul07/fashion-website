@@ -215,7 +215,7 @@ export default function Header() {
                   <div className='menu'>
                     <ul>
                       <li>
-                        <Link href="/" onClick={handleLoginClick}>Home</Link>
+                        <Link href="/" className='nav_links' onClick={handleLoginClick}>Home</Link>
                       </li>
                         {/* Dynamic Categories Rendering */}
                         {categoryMenus.map((category) => (
@@ -224,7 +224,7 @@ export default function Header() {
                             className={activeCategory === category.slug ? 'active' : ''} // Conditionally add 'active' class
                             onClick={() => handleCategoryClick(category.slug)} // Set active category on click
                           >
-                            <Link href="#">
+                            <Link href="#" className='nav_links'>
                               {category.name}
                               <span>
                                 <FaAngleDown />
@@ -495,7 +495,7 @@ export default function Header() {
             <h5>{searchQuery ? 'Search Results:' : 'Recommended:'}</h5>
               <div className='row bottom'>
                 {isSearching ? (
-                  <p>Loading...</p>
+                  <p className='no_product_text'>Search Your Product..</p>
                 ) : (searchQuery ? searchResults : []).length > 0 ? (
                   (searchQuery ? searchResults : []).map((product) => (
                     <div key={product.id} className="col-4 padding">
@@ -581,7 +581,7 @@ export default function Header() {
                     </div>
                   ))
                 ) : searchQuery ? (
-                  <p>No products found</p>
+                  <p className='no_product_text'>No products found</p>
                 ) : null}
               </div>
           </div>

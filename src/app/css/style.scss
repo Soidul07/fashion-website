@@ -635,6 +635,7 @@ header  {
     width: 100%;
     z-index: 99;
     transition: all ease-in-out .55s;
+    padding-top: 18px;
     .header_main  {
         display: flex;
         justify-content: space-between;
@@ -667,15 +668,15 @@ header  {
                     li  {
 
                         &:not(:last-child)  {
-                            padding-right: 26px;
+                            padding-right: 15px;
                         }
 
                         a  {
-                            font-size: 0.9rem;
+                            font-size: 0.8rem;
                             font-weight: 500;
                             color: var(--white);
-                            transition: all ease-in-out .3s;
-                            padding: 24px 0;
+                            transition: all ease-in-out 0.3s;
+                            position: relative;
 
                             span  {
                                 display: inline-block;
@@ -686,11 +687,45 @@ header  {
                                     width: 12px;
                                     height: 12px;
                                     fill: var(--white);
+                                    transition: all ease-in-out .3s;
                                 }
                             }
 
                             &:hover  {
-                                color: var(--red) !important;
+                                color: var(--red);
+                                span {
+                                    svg {
+                                        fill: var(--red);
+                                        transform: rotate(180deg);
+                                    }
+                                }
+                            }
+                        }
+
+                        .nav_links {
+                            padding: 3px 10px;
+                            display: flex;
+                            align-items: center;
+                            margin-bottom: 10px;
+
+                            &::after {
+                                content: "";
+                                width: 100%;
+                                height: 100%;
+                                bottom: 0;
+                                left: 0;
+                                position: absolute;
+                                background: #fff8ec;
+                                border-radius: 50px;
+                                transition: all ease-in-out .3s;
+                                opacity: 0;
+                                visibility: hidden;
+                                z-index: -1;
+                            }
+
+                            &:hover:after {
+                                opacity: 1;
+                                visibility: visible;
                             }
                         }
 
@@ -847,6 +882,7 @@ header  {
 
     &.inner_header {
         background: #fff8ec;
+        padding-top: 0;
         .header_main .logo a img {
             width: 100%;
             height: 100%;
@@ -883,6 +919,8 @@ header  {
     width: 100%;
     box-shadow: -4px -2px 30px 2px rgb(0 0 0 / 17%);
     max-width: 1540px;
+    border-radius: 4px;
+    overflow: hidden;
     z-index: 99;
     .category_menu  {
         padding: 30px 30px;
@@ -4740,11 +4778,24 @@ footer  {
     visibility: hidden;
     box-shadow: 0 5px 10px #64646433;
     .bottom {
-        height: 316px;
+        height: calc(86vh - 201px);
         overflow-y: auto;
         background: #fff8ec;
         border-radius: 3px;
-        padding: 4px;
+        padding: 6px 6px;
+        margin: 0;
+        .padding {
+            padding: 6px;
+        }
+        .no_product_text {
+            text-align: center;
+            font-size: 1rem;
+            background: #fff;
+            height: max-content;
+            padding: 20px;
+            border-radius: 3px;
+            font-weight: 500;
+        }
     }
     .search_width  {
         max-width: 650px;
