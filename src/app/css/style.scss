@@ -635,7 +635,6 @@ header  {
     width: 100%;
     z-index: 99;
     transition: all ease-in-out .55s;
-    padding-top: 18px;
     .header_main  {
         display: flex;
         justify-content: space-between;
@@ -669,6 +668,8 @@ header  {
 
                         &:not(:last-child)  {
                             padding-right: 15px;
+                            padding-top: 18px;
+                            padding-bottom: 18px;
                         }
 
                         a  {
@@ -677,6 +678,7 @@ header  {
                             color: var(--white);
                             transition: all ease-in-out 0.3s;
                             position: relative;
+                            line-height: normal;
 
                             span  {
                                 display: inline-block;
@@ -706,7 +708,7 @@ header  {
                             padding: 3px 10px;
                             display: flex;
                             align-items: center;
-                            margin-bottom: 10px;
+                            // margin-bottom: 10px;
 
                             &::after {
                                 content: "";
@@ -858,6 +860,7 @@ header  {
         z-index: 99;
         box-shadow: 0 5px 10px #64646432;
         background: var(--white);
+        padding-top: 0;
 
         .header_main .logo a img {
             width: 100%;
@@ -875,14 +878,19 @@ header  {
         .header_main .search_cart_option button svg {
             stroke: var(--fonttext);
         }
-        .header_main .mobile_class .menu ul li a {
-            padding: 15px 0;
-        }
+        // .header_main .mobile_class .menu ul li a {
+        //     padding: 15px 0;
+        // }
     }
 
     &.inner_header {
         background: #fff8ec;
         padding-top: 0;
+
+        .header_main .mobile_class .menu ul li:not(:last-child) {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
         .header_main .logo a img {
             width: 100%;
             height: 100%;
@@ -944,7 +952,10 @@ header  {
             align-items: center;
             li  {
                 padding-right: 0 !important;
+                padding-top: 0 !important;
+                padding-bottom: 0 !important;
                 width: 50%;
+                
                 a  {
                     font-size: 0.9rem !important;
                     font-weight: 500 !important;
@@ -3495,8 +3506,8 @@ footer  {
         }
         &:hover,
         &.active  {
-            background: var(--bannerbtnbg);
-            border: 1px solid var(--bannerbtnbg);
+            background: var(--darkRed);
+            border: 1px solid var(--darkRed);
             color: var(--white) !important;
         }
         

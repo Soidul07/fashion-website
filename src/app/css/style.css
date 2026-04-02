@@ -263,7 +263,6 @@ header {
   width: 100%;
   z-index: 99;
   transition: all ease-in-out 0.55s;
-  padding-top: 18px;
 }
 header .header_main {
   display: flex;
@@ -288,6 +287,8 @@ header .header_main .mobile_class .menu ul {
 }
 header .header_main .mobile_class .menu ul li:not(:last-child) {
   padding-right: 15px;
+  padding-top: 18px;
+  padding-bottom: 18px;
 }
 header .header_main .mobile_class .menu ul li a {
   font-size: 0.8rem;
@@ -295,6 +296,7 @@ header .header_main .mobile_class .menu ul li a {
   color: var(--white);
   transition: all ease-in-out 0.3s;
   position: relative;
+  line-height: normal;
 }
 header .header_main .mobile_class .menu ul li a span {
   display: inline-block;
@@ -318,7 +320,6 @@ header .header_main .mobile_class .menu ul li .nav_links {
   padding: 3px 10px;
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
 }
 header .header_main .mobile_class .menu ul li .nav_links::after {
   content: "";
@@ -439,6 +440,7 @@ header.active {
   z-index: 99;
   box-shadow: 0 5px 10px rgba(100, 100, 100, 0.1960784314);
   background: var(--white);
+  padding-top: 0;
 }
 header.active .header_main .logo a img {
   width: 100%;
@@ -456,12 +458,13 @@ header.active .header_main .search_cart_option a svg {
 header.active .header_main .search_cart_option button svg {
   stroke: var(--fonttext);
 }
-header.active .header_main .mobile_class .menu ul li a {
-  padding: 15px 0;
-}
 header.inner_header {
   background: #fff8ec;
   padding-top: 0;
+}
+header.inner_header .header_main .mobile_class .menu ul li:not(:last-child) {
+  padding-top: 0;
+  padding-bottom: 0;
 }
 header.inner_header .header_main .logo a img {
   width: 100%;
@@ -525,6 +528,8 @@ header.inner_header .header_main .humbergers button svg {
 }
 .mega_menu .category_menu ul li {
   padding-right: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
   width: 50%;
 }
 .mega_menu .category_menu ul li a {
@@ -3484,8 +3489,8 @@ footer .footer_top .link li a:hover {
   margin-right: 4px;
 }
 .pagination_div button:hover, .pagination_div button.active {
-  background: var(--bannerbtnbg);
-  border: 1px solid var(--bannerbtnbg);
+  background: var(--darkRed);
+  border: 1px solid var(--darkRed);
   color: var(--white) !important;
 }
 

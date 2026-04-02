@@ -10,6 +10,9 @@ import { HiMiniExclamationTriangle } from "react-icons/hi2";
 import { FaHeart } from "react-icons/fa";
 import { MdOutlineShoppingBag } from "react-icons/md";
 import { FaShare } from "react-icons/fa";
+import { RiArrowLeftDoubleLine } from "react-icons/ri";
+import { RiArrowRightDoubleFill } from "react-icons/ri";
+
 
 export default function AllProductsPage() {
   const [allProducts, setAllProducts] = useState([]); // Store product data
@@ -254,7 +257,7 @@ export default function AllProductsPage() {
                   onClick={() => handlePageChange(currentPage - 1)}
                   disabled={currentPage === 1}
                 >
-                  Previous
+                  <RiArrowLeftDoubleLine />
                 </button>
 
                 {/* Page Number Buttons */}
@@ -277,7 +280,7 @@ export default function AllProductsPage() {
                   onClick={() => handlePageChange(currentPage + 1)}
                   disabled={currentPage === pagination.last_page}
                 >
-                  Next
+                  <RiArrowRightDoubleFill />
                 </button>
               </div>
             )}
